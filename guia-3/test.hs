@@ -76,3 +76,9 @@ esMultiploDe x y
 
 esMultiploDep :: Integer -> Integer -> Bool
 esMultiploDep x y = (mod x y == 0) || False
+
+digitoUnidades :: Integer -> Integer
+digitoUnidades x = (mod x 10)
+
+digitoDecenas :: Integer -> Integer
+digitoDecenas x = (mod x 100)
