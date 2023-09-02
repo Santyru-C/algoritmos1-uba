@@ -68,3 +68,8 @@ sumaDistintos x y z
     | (x == y) && (y /= z) = y + z
     | (x /= y) && (y == z) = x + z
     | otherwise = x
+
+esMultiploDe :: Integer -> Integer -> Bool
+esMultiploDe x y
+    | (mod x y == 0) = True
+    | otherwise = False
