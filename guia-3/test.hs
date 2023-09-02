@@ -81,4 +81,4 @@ digitoUnidades :: Integer -> Integer
 digitoUnidades x = (mod x 10)
 
 digitoDecenas :: Integer -> Integer
-digitoDecenas x = (mod x 100)
+digitoDecenas x = div ((mod x 100) - (digitoUnidades x)) 10
