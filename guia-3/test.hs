@@ -73,3 +73,6 @@ esMultiploDe :: Integer -> Integer -> Bool
 esMultiploDe x y
     | (mod x y == 0) = True
     | otherwise = False
+
+esMultiploDep :: Integer -> Integer -> Bool
+esMultiploDep x y = (mod x y == 0) || False
