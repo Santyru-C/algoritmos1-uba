@@ -64,7 +64,7 @@ mismoIntervalo x y
 
 sumaDistintos :: Integer -> Integer -> Integer -> Integer
 sumaDistintos x y z
-    | (x != y) && (y != z) = x + y + z
-    | (x == y) && (y != z) = y + z
-    | (x != y) && (y == z) = x + z
+    | (x /= y) && (y /= z) = x + y + z
+    | (x == y) && (y /= z) = y + z
+    | (x /= y) && (y == z) = x + z
     | otherwise = x
