@@ -60,4 +60,11 @@ mismoIntervalo x y
     | (x <= 3) && (y <= 3) = True
     | ((x > 3) && (x <= 7)) && ((y > 3) && (y <= 7)) = True
     | (x > 7) && (y > 7) = True
-    | otherwise = False 
+    | otherwise = False
+
+sumaDistintos :: Integer -> Integer -> Integer -> Integer
+sumaDistintos x y z
+    | (x != y) && (y != z) = x + y + z
+    | (x == y) && (y != z) = y + z
+    | (x != y) && (y == z) = x + z
+    | otherwise = x
