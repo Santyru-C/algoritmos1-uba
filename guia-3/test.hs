@@ -82,3 +82,7 @@ digitoUnidades x = (mod x 10)
 
 digitoDecenas :: Integer -> Integer
 digitoDecenas x = div ((mod x 100) - (digitoUnidades x)) 10
+
+estanRelacionados :: Integer -> Integer -> Bool
+estanRelacionados a b = (a*a + a*b*c == 0) || False
+    where c = (-(div (a*a) (a*b)))
