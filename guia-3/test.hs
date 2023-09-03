@@ -86,3 +86,26 @@ digitoDecenas x = div ((mod x 100) - (digitoUnidades x)) 10
 estanRelacionados :: Integer -> Integer -> Bool
 estanRelacionados a b = (a*a + a*b*c == 0) || False
     where c = (-(div (a*a) (a*b)))
+
+
+{- 
+problema prodInt ((Float, Float), (Float, Float)): Float {
+    requiere: {True}
+    asegura: {res = al producto escalar entre ambas tuplas}
+}
+-}
+
+prodInt :: (Float, Float) -> (Float, Float) -> Float
+prodInt (x, y) (a, b) = (x*a) + (y*b)
+
+{-
+problema todoMenor ((Float, Float), (Float, Float)): Bool {
+    requiere: {True}
+    asegura: {res = true si la primer y segunda coordenada de la primera tupla 
+                son menores a la primer y segunda coordenada de la segunda tupla 
+                respectivmente}
+}
+-}
+
+todoMenor :: (Float, Float) -> (Float, Float) -> Bool
+todoMenor (x, y) (a, b) = ((x < a) && (y < b)) || False 
