@@ -136,3 +136,20 @@ problema sumaTerna (terna:(Integer, Integer, Integer)): Integer {
 
 sumaTerna :: (Integer, Integer, Integer) -> Integer
 sumaTerna (x, y , z) = x + y + z
+
+---
+
+{-
+problema sumarSoloMultiplos(terna:(Integer, Integer, Integer), n:Nat): Integer {
+    requiere: {n > 0}
+    asegura: {res = la suma de los elementos de la terna que son multiplos
+        de n}
+}
+-}
+
+devolverSiEsMultiplo :: Integer -> Integer -> Integer
+devolverSiEsMultiplo x y
+    | esMultiploDe x y = x
+    | otherwise = 0
+
+--sumarSoloMultiplos :: (Integer, Integer, Integer) -> Integer -> Integer
