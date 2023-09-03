@@ -211,4 +211,6 @@ aux2 :: Integer -> Integer
 aux2 x
     | esPar x = div x 2
     | otherwise = (3 * x) + 1
---todosMenores :: (Integer, Integer, Integer) -> Bool
+
+todosMenores :: (Integer, Integer, Integer) -> Bool
+todosMenores (x, y, z) = (aux1 x > aux2 x) && (aux1 y > aux2 y) && (aux1 z > aux2 z)
