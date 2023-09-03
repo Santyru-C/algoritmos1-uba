@@ -156,3 +156,20 @@ sumarSoloMultiplos :: (Integer, Integer, Integer) -> Integer -> Integer
 sumarSoloMultiplos (x, y, z) n = (devolverSiEsMultiplo x n)
                                 + (devolverSiEsMultiplo y n) 
                                 + (devolverSiEsMultiplo z n)
+
+---
+
+{-
+problema posPrimerPar (terna:(Integer, Integer, Integer)): Integer {
+    requiere: {True}
+    asegura: {res = la posicion del primer número par en la terna}
+    asegura: {res = 4 si ningún número es par}
+}
+-}
+
+esPar :: Integer -> Bool
+esPar x = esMultiploDe x 2
+
+posPrimerPar :: (Integer, Integer, Integer) -> Integer
+posPrimerPar (x, y, z)
+    | (mod x 2 == 0) = 0
