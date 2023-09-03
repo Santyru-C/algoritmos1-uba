@@ -200,3 +200,11 @@ problema invertir (dupla:(a, b)): (b, a) {
 
 invertir :: (a, b) -> (b, a)
 invertir (a, b) = (b, a)
+
+---
+aux1 :: Integer -> Integer
+aux1 x
+    | x <= 7 = x * x
+    | otherwise = (2 * x) - 1
+
+--todosMenores :: (Integer, Integer, Integer) -> Bool
