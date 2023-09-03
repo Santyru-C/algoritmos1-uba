@@ -152,4 +152,7 @@ devolverSiEsMultiplo x y
     | esMultiploDe x y = x
     | otherwise = 0
 
---sumarSoloMultiplos :: (Integer, Integer, Integer) -> Integer -> Integer
+sumarSoloMultiplos :: (Integer, Integer, Integer) -> Integer -> Integer
+sumarSoloMultiplos (x, y, z) n = (devolverSiEsMultiplo x n)
+                                + (devolverSiEsMultiplo y n) 
+                                + (devolverSiEsMultiplo z n)
