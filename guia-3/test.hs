@@ -99,7 +99,7 @@ prodInt :: (Float, Float) -> (Float, Float) -> Float
 prodInt (x, y) (a, b) = (x*a) + (y*b)
 
 {-
-problema todoMenor ((Float, Float), (Float, Float)): Bool {
+problema todoMenor (p1:(Float, Float), p2:(Float, Float)): Bool {
     requiere: {True}
     asegura: {res = true si la primer y segunda coordenada de la primera tupla 
                 son menores a la primer y segunda coordenada de la segunda tupla 
@@ -108,4 +108,14 @@ problema todoMenor ((Float, Float), (Float, Float)): Bool {
 -}
 
 todoMenor :: (Float, Float) -> (Float, Float) -> Bool
-todoMenor (x, y) (a, b) = ((x < a) && (y < b)) || False 
+todoMenor (x, y) (a, b) = ((x < a) && (y < b)) || False
+
+{-
+problema distanciaPuntos (p1:(Float, Float), p2:(Float, Float)): Bool {
+    requiere: {True}
+    asegura: {res = la distancia euclidiana entre los dos puntos}
+}
+-}
+
+distanciaPuntos :: (Float, Float) -> (Float, Float) -> Float
+distanciaPuntos (x, y) (a, b) = ((a-x)**2 + (b-y)**2)**(1/2)
