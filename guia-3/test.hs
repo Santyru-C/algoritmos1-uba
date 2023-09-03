@@ -103,7 +103,7 @@ problema todoMenor ((Float, Float), (Float, Float)): Bool {
     requiere: {True}
     asegura: {res = true si la primer y segunda coordenada de la primera tupla 
                 son menores a la primer y segunda coordenada de la segunda tupla 
-                respectivmente}
+                respectivamente}
 }
 -}
 
