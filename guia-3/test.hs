@@ -180,10 +180,23 @@ posPrimerPar (x, y, z)
 ---
 
 {-
-problema crearPar (a, b): (a ,b){
-    requiere: {}
+problema crearPar (dupla:(a, b)): (a ,b){
+    requiere: {True}
+    asegura: {res = a un par ordenado compuesto por los elementos a y b en el orden dado}
 }
 -}
 
 crearPar :: a -> b -> (a, b)
 crearPar a b = (a, b)
+
+---
+
+{-
+problema invertir (dupla:(a, b)): (b, a) {
+    requiere: {True}
+    asegura: {res = una dupla que posee los valores de la dupla original con las posiciones invertidas}
+}
+-}
+
+invertir :: (a, b) -> (b, a)
+invertir (a, b) = (b, a)
