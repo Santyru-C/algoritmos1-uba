@@ -172,4 +172,7 @@ esPar x = esMultiploDe x 2
 
 posPrimerPar :: (Integer, Integer, Integer) -> Integer
 posPrimerPar (x, y, z)
-    | (mod x 2 == 0) = 0
+    | esPar x = 0
+    | esPar y = 1
+    | esPar z = 2
+    | otherwise = 4
