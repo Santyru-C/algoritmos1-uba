@@ -207,4 +207,8 @@ aux1 x
     | x <= 7 = x * x
     | otherwise = (2 * x) - 1
 
+aux2 :: Integer -> Integer
+aux2 x
+    | esPar x = div x 2
+    | otherwise = (3 * x) + 1
 --todosMenores :: (Integer, Integer, Integer) -> Bool
