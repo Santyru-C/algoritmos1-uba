@@ -87,6 +87,7 @@ estanRelacionados :: Integer -> Integer -> Bool
 estanRelacionados a b = (a*a + a*b*c == 0) || False
     where c = (-(div (a*a) (a*b)))
 
+---
 
 {- 
 problema prodInt ((Float, Float), (Float, Float)): Float {
@@ -97,6 +98,8 @@ problema prodInt ((Float, Float), (Float, Float)): Float {
 
 prodInt :: (Float, Float) -> (Float, Float) -> Float
 prodInt (x, y) (a, b) = (x*a) + (y*b)
+
+---
 
 {-
 problema todoMenor (p1:(Float, Float), p2:(Float, Float)): Bool {
@@ -110,6 +113,8 @@ problema todoMenor (p1:(Float, Float), p2:(Float, Float)): Bool {
 todoMenor :: (Float, Float) -> (Float, Float) -> Bool
 todoMenor (x, y) (a, b) = ((x < a) && (y < b)) || False
 
+---
+
 {-
 problema distanciaPuntos (p1:(Float, Float), p2:(Float, Float)): Bool {
     requiere: {True}
@@ -119,3 +124,15 @@ problema distanciaPuntos (p1:(Float, Float), p2:(Float, Float)): Bool {
 
 distanciaPuntos :: (Float, Float) -> (Float, Float) -> Float
 distanciaPuntos (x, y) (a, b) = ((a-x)**2 + (b-y)**2)**(1/2)
+
+---
+
+{-
+problema sumaTerna (terna:(Integer, Integer, Integer)): Integer {
+    requiere: {True}
+    asegura: {res = la suma de los tres elementos de la terna}
+}
+-}
+
+sumaTerna :: (Integer, Integer, Integer) -> Integer
+sumaTerna (x, y , z) = x + y + z
