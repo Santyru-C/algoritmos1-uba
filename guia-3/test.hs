@@ -176,3 +176,14 @@ posPrimerPar (x, y, z)
     | esPar y = 1
     | esPar z = 2
     | otherwise = 4
+
+---
+
+{-
+problema crearPar (a, b): (a ,b){
+    requiere: {}
+}
+-}
+
+crearPar :: a -> b -> (a, b)
+crearPar a b = (a, b)
