@@ -234,3 +234,12 @@ distanciaManhattan (x1, y1, z1) (x2, y2, z2) = absolutoFloat(x1-x2) + absolutoFl
 
 sumaUltimosDosDigitos :: Integer -> Integer
 sumaUltimosDosDigitos x = (mod x 10) + (mod (div x 10) 10)
+
+comparar :: Integer -> Integer -> Integer
+comparar x y
+    | a < b = 1
+    | a > b = (-1)
+    | a == b = 0
+    where
+        a = sumaUltimosDosDigitos x
+        b = sumaUltimosDosDigitos y
