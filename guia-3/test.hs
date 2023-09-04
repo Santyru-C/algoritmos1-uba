@@ -22,6 +22,11 @@ absoluto x
     | x < 0 = (-x)
     | otherwise = x
 
+absolutoFloat :: Float -> Float
+absolutoFloat x
+    | x < 0 = -x
+    | otherwise = x
+
 maximoAbsoluto :: Integer -> Integer -> Integer
 maximoAbsoluto x y
     | absx > absy = absx
@@ -214,3 +219,13 @@ aux2 x
 
 todosMenores :: (Integer, Integer, Integer) -> Bool
 todosMenores (x, y, z) = (aux1 x > aux2 x) && (aux1 y > aux2 y) && (aux1 z > aux2 z)
+
+---
+
+bisiesto :: Integer -> Bool
+bisiesto x = ((esMultiploDe x 100) && (esMultiploDe x 400)) || (esMultiploDe x 4)
+
+---
+
+distanciaManhattan :: (Float, Float, Float) -> (Float, Float, Float) -> Float
+distanciaManhattan (x1, y1, z1) (x2, y2, z2) = absolutoFloat(x1-x2) + absolutoFloat(y1-y2) + absolutoFloat(z1-z2)
