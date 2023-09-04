@@ -229,3 +229,8 @@ bisiesto x = ((esMultiploDe x 100) && (esMultiploDe x 400)) || (esMultiploDe x 4
 
 distanciaManhattan :: (Float, Float, Float) -> (Float, Float, Float) -> Float
 distanciaManhattan (x1, y1, z1) (x2, y2, z2) = absolutoFloat(x1-x2) + absolutoFloat(y1-y2) + absolutoFloat(z1-z2)
+
+---
+
+sumaUltimosDosDigitos :: Integer -> Integer
+sumaUltimosDosDigitos x = (mod x 10) + (mod (div x 10) 10)
