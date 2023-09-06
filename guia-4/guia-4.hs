@@ -101,12 +101,12 @@ problema esCapicua (n:N>=0): Bool {
 primerDigito :: Integer -> Integer
 primerDigito x = div x (10 ^ (cantDigitos x - 1))
 
-devolverUltimo :: Integer -> Integer
-devolverUltimo x = mod x 10
+ultimoDigito :: Integer -> Integer
+ultimoDigito x = mod x 10
 
 esCapicua :: Integer -> Bool
 esCapicua x
     | x < 10 = True
-    | (primerDigito x) == devolverUltimo x = esCapicua(div (mod x (10 ^ (cantDigitos x - 1))) 10)
+    | (primerDigito x) == ultimoDigito x = esCapicua(div (mod x (10 ^ (cantDigitos x - 1))) 10)
     | otherwise = False
 ---
