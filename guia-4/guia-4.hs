@@ -104,9 +104,12 @@ primerDigito x = div x (10 ^ (cantDigitos x - 1))
 ultimoDigito :: Integer -> Integer
 ultimoDigito x = mod x 10
 
+recortarExtremos :: Integer -> Integer
+recortarExtremos x = div (mod x (10 ^ (cantDigitos x - 1))) 10
+
 esCapicua :: Integer -> Bool
 esCapicua x
     | x < 10 = True
-    | (primerDigito x) == ultimoDigito x = esCapicua(div (mod x (10 ^ (cantDigitos x - 1))) 10)
+    | (primerDigito x) == (ultimoDigito x) = esCapicua(recortarExtremos x)
     | otherwise = False
 ---
