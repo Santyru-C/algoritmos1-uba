@@ -56,3 +56,8 @@ todosDigitosIguales x
     where head = div x 10
 
 ---
+
+medioFact :: Integer -> Integer
+medioFact x
+    | (x == 1) || (x == 0) = 1
+    | otherwise = x * medioFact(x - 2)
