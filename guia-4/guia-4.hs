@@ -98,11 +98,15 @@ problema esCapicua (n:N>=0): Bool {
 }
 -}
 
-extraerPrimero :: Integer -> Integer
-extraerPrimero x = div x (10 ^ (cantDigitos x - 1))
+primerDigito :: Integer -> Integer
+primerDigito x = div x (10 ^ (cantDigitos x - 1))
+
+devolverUltimo :: Integer -> Integer
+devolverUltimo x = mod x 10
 
 esCapicua :: Integer -> Bool
 esCapicua x
     | x < 10 = True
-    -- si el primer numero y el ultimo son iguales llamar la funcion sin ellos dos, usar div con cantidad de digitos para extraer first
+    | (primerDigito x) == devolverUltimo x = esCapicua(div (mod x (10 ^ (cantDigitos x - 1))) 10)
+    | otherwise = False
 ---
