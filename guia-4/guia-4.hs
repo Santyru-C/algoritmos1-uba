@@ -89,3 +89,20 @@ iesimoDigito n i
     | i == cantDigitos(n) = mod n 10
     | otherwise = iesimoDigito (div n 10) i
 
+--- 9
+
+{-
+problema esCapicua (n:N>=0): Bool {
+    requiere:{n no comienza con 0}
+    asegura:{res = true si n es palíndromo}
+}
+-}
+
+extraerPrimero :: Integer -> Integer
+extraerPrimero x = div x (10 ^ (cantDigitos x - 1))
+
+esCapicua :: Integer -> Bool
+esCapicua x
+    | x < 10 = True
+    -- si el primer numero y el ultimo son iguales llamar la funcion sin ellos dos, usar div con cantidad de digitos para extraer first
+---
