@@ -74,6 +74,10 @@ problema sumaDigitos (n:N): N {
 
 sumaDigitos :: Integer -> Integer
 sumaDigitos n
-    | div n 10 == 0 = n
-    | otherwise = mod n 10 + sumaDigitos(div n 10)
----
+    | p_decimal == 0 = n
+    | otherwise = mod n 10 + sumaDigitos(p_decimal)
+    where p_decimal = div n 10
+--- 8 
+
+--iesimoDigito :: Integer -> Integer -> Integer
+
