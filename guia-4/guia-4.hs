@@ -84,3 +84,8 @@ cantDigitos n
     | n < 10 = 1
     | otherwise = 1 + cantDigitos (div n 10)
 
+iesimoDigito :: Integer -> Integer -> Integer
+iesimoDigito n i
+    | i == cantDigitos(n) = mod n 10
+    | otherwise = iesimoDigito (div n 10) i
+
