@@ -142,7 +142,7 @@ f2 n q = q ^ n + f2 (n - 1) q
 -- c
 
 --- 11
---a 
+-- a 
 
 {- 
 problema eAprox(n: N>=0): R {
@@ -158,4 +158,9 @@ factorial n = n * factorial (n - 1)
 eAprox :: Integer -> Float
 eAprox 0 = 1
 eAprox n = (1 / fromIntegral (factorial n)) + eAprox (n - 1)
+
+-- b
+
+e :: Float 
+e = eAprox 10
 
