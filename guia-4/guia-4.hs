@@ -161,6 +161,11 @@ eAprox n = (1 / fromIntegral (factorial n)) + eAprox (n - 1)
 
 -- b
 
-e :: Float 
+e :: Float
 e = eAprox 10
 
+--- 12
+
+sucesionAux :: Integer -> Float
+sucesionAux 1 = 2
+sucesionAux n = 2 + (1 / sucesionAux (n - 1))
