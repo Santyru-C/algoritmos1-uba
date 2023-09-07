@@ -112,4 +112,23 @@ esCapicua x
     | x < 10 = True
     | (primerDigito x) == (ultimoDigito x) = esCapicua(recortarExtremos x)
     | otherwise = False
----
+
+--- 10
+
+-- a
+
+{-
+problema f1 (n: N>=0): N {
+    requiere:{True}
+    asegura:{res = la suma de los n primeros terminos de 2^i, i perteneciente a N comenzando desde i = 0}
+}
+-}
+f1 :: Integer -> Integer
+f1 0 = 1
+f1 n = 2 ^ n + f1 (n - 1)
+
+-- b
+
+f2 :: Integer -> Integer -> Integer
+f2 1 q = q
+f2 n q = q ^ n + f2 (n - 1) q
