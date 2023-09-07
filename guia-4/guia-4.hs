@@ -135,6 +135,19 @@ problema f2(n: N, q: Float): Float {
     asegura:{res = la suma de los n primeros terminos de q^i, siendo el primer termino con i = 1}
 }
 -}
-f2 :: Integer -> Integer -> Integer
+f2 :: Integer -> Float -> Float
 f2 1 q = q
 f2 n q = q ^ n + f2 (n - 1) q
+
+-- c
+
+--- 11
+--a 
+
+factorial :: Integer -> Integer
+factorial 0 = 1
+factorial n = n * factorial (n - 1)
+
+eAprox :: Integer -> Float
+eAprox 0 = 1
+
