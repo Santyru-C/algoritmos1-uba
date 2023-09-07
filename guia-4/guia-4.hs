@@ -129,6 +129,12 @@ f1 n = 2 ^ n + f1 (n - 1)
 
 -- b
 
+{-
+problema f2(n: N, q: Float): Float {
+    requiere:{True}
+    asegura:{res = la suma de los n primeros terminos de q^i, siendo el primer termino con i = 1}
+}
+-}
 f2 :: Integer -> Integer -> Integer
 f2 1 q = q
 f2 n q = q ^ n + f2 (n - 1) q
