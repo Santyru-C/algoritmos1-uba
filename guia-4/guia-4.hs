@@ -165,7 +165,16 @@ e :: Float
 e = eAprox 10
 
 --- 12
-
+{-
+problema raizDe2Aprox(n:N): R{
+    requiere:{True}
+    asegura:{res = una aproximacion de (2 ** 1/2) obtenida a partir de el termino sucesionAux n - 1}
+    asegura:{n = 1 -> res = 1}
+    asegura:{n = 2 -> res = 1.5}
+    asegura:{n = 3 -> res = 1.4}
+}
+-}
 sucesionAux :: Integer -> Float
 sucesionAux 1 = 2
 sucesionAux n = 2 + (1 / sucesionAux (n - 1))
+
