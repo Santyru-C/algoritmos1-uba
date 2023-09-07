@@ -144,6 +144,13 @@ f2 n q = q ^ n + f2 (n - 1) q
 --- 11
 --a 
 
+{- 
+problema eAprox(n: N>=0): R {
+    requiere:{True}
+    asegura:{res = a la suma de los primeros n términos de 1/i!, siendo i el indice de la sumatoria comenzando en 0}
+}
+-}
+
 factorial :: Integer -> Integer
 factorial 0 = 1
 factorial n = n * factorial (n - 1)
