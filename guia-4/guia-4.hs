@@ -197,3 +197,13 @@ sumatoriaAux i j = (i ^ j) + sumatoriaAux i (j - 1)
 sumatoria13 :: Integer -> Integer -> Integer
 sumatoria13 1 j = sumatoriaAux 1 j
 sumatoria13 i j = sumatoriaAux i j + sumatoria13 (i - 1) j
+
+--- 14
+
+{-
+problema sumaDePotencias(q:N, n:N, m:N): N {
+    requiere:{True}
+    asegura:{res = la suma de todas las potencias de la forma q ^ (a + b)
+                1 <= a <= n, 1 <= b <= m}
+}
+-}
