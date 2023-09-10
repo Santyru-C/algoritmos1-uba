@@ -201,9 +201,18 @@ sumatoria13 i j = sumatoriaAux i j + sumatoria13 (i - 1) j
 --- 14
 
 {-
-problema sumaDePotencias(q:N, n:N, m:N): N {
+problema sumaPotencias(q:N, n:N, m:N): N { 
     requiere:{True}
     asegura:{res = la suma de todas las potencias de la forma q ^ (a + b)
                 1 <= a <= n, 1 <= b <= m}
 }
 -}
+
+funcionAux14 :: Integer -> Integer -> Integer -> Integer
+funcionAux14 q n 1 = q ^ (n + 1)
+funcionAux14 q n m = q ^ (n + m) + funcionAux14 q n (m - 1)
+
+-- preguntar si esta bien implementada la consigna ¿Valen potencias repetidas?
+sumaPotencias :: Integer -> Integer -> Integer -> Integer -- como uso acumuladores en haskel?, mepa no hay
+sumaPotencias q 1 m = funcionAux14 q 1 m
+sumaPotencias q n m = funcionAux14 q n m + sumaPotencias q (n - 1) m
