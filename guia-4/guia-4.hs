@@ -230,3 +230,21 @@ sumaRacionales n m = sumaRacionalesParcial n m + sumaRacionalesParcial (n - 1) m
 --- 16
 
 -- a
+
+menorDivisorf :: Integer -> Integer -> Integer -- with accumulator
+menorDivisorf n d
+    | n == d = n
+    | mod n d == 0 = d
+    | otherwise = menorDivisorf n (d + 1)
+
+-- usar funcion auxiliar
+
+menorDivisorAux :: Integer -> Integer -> Integer
+menorDivisorAux n d
+    | n == d = n
+    | mod n d == 0 = d
+    | otherwise = menorDivisorAux n (d + 1)
+
+menorDivisor :: Integer -> Integer
+menorDivisor n = menorDivisorAux n 2
+
