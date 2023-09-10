@@ -178,3 +178,22 @@ sucesionAux :: Integer -> Float
 sucesionAux 1 = 2
 sucesionAux n = 2 + (1 / sucesionAux (n - 1))
 
+raizDe2Aprox :: Integer -> Float
+raizDe2Aprox n = sucesionAux n - 1
+
+--- 13
+
+{-
+problema f(n: N, m: N): N { -- es un nested loop ladrones
+    requiere:{True}
+    asegura:{res = la suma de los primeros n terminos de la suma de los primeros m terminos de la sucesion i}
+}
+-}
+
+sumatoriaAux :: Integer -> Integer -> Integer
+sumatoriaAux i 1 = i
+sumatoriaAux i j = (i ^ j) + sumatoriaAux i (j - 1)
+
+sumatoria13 :: Integer -> Integer -> Integer
+sumatoria13 1 j = sumatoriaAux 1 j
+sumatoria13 i j = sumatoriaAux i j + sumatoria13 (i - 1)
