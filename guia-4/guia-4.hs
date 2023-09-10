@@ -216,3 +216,17 @@ funcionAux14 q n m = q ^ (n + m) + funcionAux14 q n (m - 1)
 sumaPotencias :: Integer -> Integer -> Integer -> Integer -- como uso acumuladores en haskel?, mepa no hay
 sumaPotencias q 1 m = funcionAux14 q 1 m
 sumaPotencias q n m = funcionAux14 q n m + sumaPotencias q (n - 1) m
+
+--- 15 preguntar por tail recursion / por el tema de los float
+
+sumaRacionalesParcial :: Float -> Float -> Float
+sumaRacionalesParcial p 1 = p
+sumaRacionalesParcial p q = (p / q) + sumaRacionalesParcial p (q - 1)
+
+sumaRacionales :: Float -> Float -> Float
+sumaRacionales 1 m = sumaRacionalesParcial 1 m
+sumaRacionales n m = sumaRacionalesParcial n m + sumaRacionalesParcial (n - 1) m
+
+--- 16
+
+-- a
