@@ -196,4 +196,4 @@ sumatoriaAux i j = (i ^ j) + sumatoriaAux i (j - 1)
 
 sumatoria13 :: Integer -> Integer -> Integer
 sumatoria13 1 j = sumatoriaAux 1 j
-sumatoria13 i j = sumatoriaAux i j + sumatoria13 (i - 1)
+sumatoria13 i j = sumatoriaAux i j + sumatoria13 (i - 1) j
