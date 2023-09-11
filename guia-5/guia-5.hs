@@ -44,3 +44,9 @@ todosDistintos (x:xs)
 -- d
 hayRepetidos :: (Eq t) => [t] -> Bool
 hayRepetidos xs = not (todosDistintos xs)
+
+-- e
+quitar :: (Eq t) => t -> [t] -> [t]
+quitar n (x:xs)
+    | n == x = xs
+    | n /= x = [x] ++ quitar n xs
