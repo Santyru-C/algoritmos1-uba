@@ -33,3 +33,10 @@ todosIguales (x:[]) = True
 todosIguales (x:y:xs) --recordar que el operador (:) solo se puede usar con (elem:list)
     | x == y = todosIguales (y:xs)
     | otherwise = False
+
+-- c
+todosDistintos :: (Eq t) => [t] -> Bool
+todosDistintos (x:[]) = True
+todosDistintos (x:xs)
+    | pertenece x (xs) = False
+    | otherwise = todosDistintos xs
