@@ -40,3 +40,7 @@ todosDistintos (x:[]) = True
 todosDistintos (x:xs)
     | pertenece x (xs) = False
     | otherwise = todosDistintos xs
+
+-- d
+hayRepetidos :: (Eq t) => [t] -> Bool
+hayRepetidos xs = not (todosDistintos xs)
