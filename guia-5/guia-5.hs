@@ -26,3 +26,10 @@ pertenece x [] = False
 pertenece x (y:ys)
     | x == y = True
     | otherwise = pertenece x ys
+
+-- b
+todosIguales :: (Eq t) => [t] -> Bool
+todosIguales (x:[]) = True
+todosIguales (x:y:xs) --recordar que el operador (:) solo se puede usar con (elem:list)
+    | x == y = todosIguales (y:xs)
+    | otherwise = False
