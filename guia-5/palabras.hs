@@ -17,6 +17,14 @@ pertenece x (y:ys)
     | x == y = True
     | otherwise = pertenece x ys
 
+-- reemplaza cada subsecuencia de blancos contiguos de la primera lista por un solo blanco en la segunda
+sacarBlancosRepetidos :: [Char] -> [Char]
+sacarBlancosRepetidos [] = []
+sacarBlancosRepetidos (x:[]) = [x]
+sacarBlancosRepetidos (x:y:xs)
+    | x == ' ' && y == ' ' = sacarBlancosRepetidos (y:xs)
+    | otherwise = x:(sacarBlancosRepetidos (y:xs))
+
 test :: [Integer] -> [Integer]
-test (x:xs) = xs
+test (x:y:z:xs) = xs
 
