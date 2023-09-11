@@ -20,3 +20,9 @@ reverso (x:[]) = [x]
 reverso (x:xs) = reverso(xs)++[x] -- using ++ as the function returns a list as a requirement
 
 --- 2
+-- a
+pertenece :: (Eq t) => t -> [t] -> Bool
+pertenece x [] = False
+pertenece x (y:ys)
+    | x == y = True
+    | otherwise = pertenece x ys
