@@ -20,37 +20,40 @@ reverso (x:[]) = [x]
 reverso (x:xs) = reverso(xs)++[x] -- using ++ as the function returns a list as a requirement
 
 --- 2
--- a
+-- a devuelve el booleano True en el caso de que un elemento dado pertenezca a una lista dada
 pertenece :: (Eq t) => t -> [t] -> Bool
 pertenece x [] = False
 pertenece x (y:ys)
     | x == y = True
     | otherwise = pertenece x ys
 
--- b
+-- b devuelve el booleano True en el caso de que todos los elementos de una lista dada sean iguales
 todosIguales :: (Eq t) => [t] -> Bool
 todosIguales (x:[]) = True
 todosIguales (x:y:xs) --recordar que el operador (:) solo se puede usar con (elem:list)
     | x == y = todosIguales (y:xs)
     | otherwise = False
 
--- c
+-- c devuelve el booleano True en el caso de que exista un elemento distinto a otro en una lista dada
 todosDistintos :: (Eq t) => [t] -> Bool
 todosDistintos (x:[]) = True
 todosDistintos (x:xs)
     | pertenece x (xs) = False
     | otherwise = todosDistintos xs
 
--- d
+-- d devuelve el booleano True en el caso de que existan 2 o mas elementos iguales en una lista
 hayRepetidos :: (Eq t) => [t] -> Bool
 hayRepetidos xs = not (todosDistintos xs)
 
--- e
+-- e quita un elemento dado de la lista dada
 quitar :: (Eq t) => t -> [t] -> [t]
 quitar n (x:xs)
+    | not (pertenece n (x:xs)) = (x:xs)
     | n == x = xs
     | n /= x = [x] ++ quitar n xs
+
 -- f
+
 quitarTodos :: (Eq t) => t -> [t] -> [t]
 quitarTodos n xs
     | xs == [] = []
@@ -60,6 +63,8 @@ quitarTodos n xs
         h = head xs
         t = tail xs
 
+-- g
+
 eliminarRepetidos :: (Eq t) => [t] -> [t]
 eliminarRepetidos [] = []
 eliminarRepetidos [x] = [x]
@@ -67,6 +72,7 @@ eliminarRepetidos (x:xs)
     | pertenece x xs = eliminarRepetidos xs -- anto tenia un eliminar repetidos de mas
     | otherwise = [x] ++ eliminarRepetidos xs
 
+-- h
 -- esta funcion es de anto, testing
 mismosElementos :: (Eq t ) => [t] -> [t] -> Bool
 mismosElementos [] [] = True
@@ -82,7 +88,11 @@ mismosElementos (x:xs) (y:ys)
         trimmedxs = quitarTodos y (quitarTodos x xs1) -- fijate que en estas dos repito lo que declaro excepto la lista
         trimmedys = quitarTodos y (quitarTodos x ys1) -- oseeeaa que es facil extraer una funcion de aca... Hacelo vos
 
+-- i
 capicua :: (Eq t) => [t] -> Bool
 capicua xs
     | xs == reverso xs = True
     | otherwise = False
+
+--- 3
+
