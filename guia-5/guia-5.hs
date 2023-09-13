@@ -73,5 +73,16 @@ mismosElementos [] [] = True
 mismosElementos [] ys = False
 mismosElementos xs [] = False
 mismosElementos (x:xs) (y:ys)
-    | pertenece x (eliminarRepetidos ys) && pertenece y (eliminarRepetidos xs) && mismosElementos (eliminarRepetidos xs) (eliminarRepetidos ys) = True
+    | x == y = mismosElementos (quitarTodos x (xs1)) (quitarTodos y (ys1)) -- agrego otro caso para evitar saltear la comparacion entre el primer valor de cada lista
+    | (pertenece x ys1) && (pertenece y xs1) && (mismosElementos trimmedxs trimmedys) = True -- (aparte) yo modificaria esta linea y llevaria a que el resultado sea la propia llamada recursiva y no true, pero asi ya funciona
+    | otherwise = False -- el problema esta en el bloque de arriba, puede suceder que como extrae los primeros valores de la lista, estos no se comparen si son iguales
+    where
+        xs1 = eliminarRepetidos xs
+        ys1 = eliminarRepetidos ys
+        trimmedxs = quitarTodos y (quitarTodos x xs1) -- fijate que en estas dos repito lo que declaro excepto la lista
+        trimmedys = quitarTodos y (quitarTodos x ys1) -- oseeeaa que es facil extraer una funcion de aca... Hacelo vos
+
+capicua :: (Eq t) => [t] -> Bool
+capicua xs
+    | xs == reverso xs = True
     | otherwise = False
