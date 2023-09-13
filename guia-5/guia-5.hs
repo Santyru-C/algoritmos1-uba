@@ -108,6 +108,11 @@ productoria (x:xs) = x * productoria xs
 maximo :: [Integer] -> Integer
 maximo [x] = x
 maximo (x:y:zs)
-    | x >= sumatoria(y:zs) = x
+    | x >= sumatoria(y:zs) = x -- nos ahorramos algunas recursiones
     | x >= y = maximo (x:zs)
     | x <= y = maximo (y:zs)
+
+--d suma n a cada posicion de la lista dada
+sumarN :: Integer -> [Integer] -> [Integer]
+sumarN n [] = []
+sumarN n (x:xs) = [n + x] ++ sumarN n xs
