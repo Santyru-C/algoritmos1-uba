@@ -93,7 +93,13 @@ capicua xs
     | otherwise = False
 
 --- 3
--- a devuelve la suma de todos los números enteros contenidos en la lista dada
+--a devuelve la suma de todos los números enteros contenidos en la lista dada
 sumatoria :: [Integer] -> Integer
 sumatoria [] = 0
 sumatoria (x:xs) = x + sumatoria xs
+
+--b devuelve el producto de todos los valores pertenecientes a la lista dada
+productoria :: [Integer] -> Integer
+productoria [] = 0
+productoria [x] = x
+productoria (x:xs) = x * productoria xs
