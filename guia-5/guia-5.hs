@@ -124,3 +124,16 @@ sumarPrimero (x:xs) = sumarN x (x:xs) -- preguntar si quieren esto o complicarla
 --f suma el primer valor de la lista a todas las posiciones de la misma, ultimo inclusive
 sumarUltimo :: [Integer] -> [Integer]
 sumarUltimo xs = sumarN (ultimo xs) xs
+
+--g filtra la lista dada devolviendo una nueva lista solo con los numeros pares de la anterior en el mismo orden
+esPar :: Integer -> Bool
+esPar x
+    | mod x 2 == 0 = True
+    | otherwise = False
+
+pares :: [Integer] -> [Integer]
+pares [] = []
+pares (x:xs)
+    | esPar x = [x] ++ pares xs
+    | otherwise = pares xs
+-- agregar una funcion es par --como importo la funcion de la guia 3?
