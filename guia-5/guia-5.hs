@@ -86,11 +86,14 @@ mismosElementos (x:xs) (y:ys)
         trimmedxs = quitarTodos y (quitarTodos x xs1) -- fijate que en estas dos repito lo que declaro excepto la lista
         trimmedys = quitarTodos y (quitarTodos x ys1) -- oseeeaa que es facil extraer una funcion de aca... Hacelo vos
 
--- i
+-- i devuelve el booleano True si la lista dada es un palíndromo
 capicua :: (Eq t) => [t] -> Bool
 capicua xs
     | xs == reverso xs = True
     | otherwise = False
 
 --- 3
-
+-- a devuelve la suma de todos los números enteros contenidos en la lista dada
+sumatoria :: [Integer] -> Integer
+sumatoria [] = 0
+sumatoria (x:xs) = x + sumatoria xs
