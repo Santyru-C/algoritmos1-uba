@@ -52,8 +52,7 @@ quitar n (x:xs)
     | n == x = xs
     | n /= x = [x] ++ quitar n xs
 
--- f
-
+-- f elimina todas las recurrencias de un elemento dado en la lista dada
 quitarTodos :: (Eq t) => t -> [t] -> [t]
 quitarTodos n xs
     | xs == [] = []
@@ -63,8 +62,7 @@ quitarTodos n xs
         h = head xs
         t = tail xs
 
--- g
-
+-- g elimina todos los elementos repetidos de la lista dada
 eliminarRepetidos :: (Eq t) => [t] -> [t]
 eliminarRepetidos [] = []
 eliminarRepetidos [x] = [x]
@@ -72,7 +70,7 @@ eliminarRepetidos (x:xs)
     | pertenece x xs = eliminarRepetidos xs -- anto tenia un eliminar repetidos de mas
     | otherwise = [x] ++ eliminarRepetidos xs
 
--- h
+-- h devuelve el booleano True en el caso de que todos los elementos de una lista esten en la otra y viceversa. No tiene en cuenta repeticiones
 -- esta funcion es de anto, testing
 mismosElementos :: (Eq t ) => [t] -> [t] -> Bool
 mismosElementos [] [] = True
