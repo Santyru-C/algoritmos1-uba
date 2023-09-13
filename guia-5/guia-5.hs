@@ -131,6 +131,7 @@ esPar x
     | mod x 2 == 0 = True
     | otherwise = False
 
+--i devuelve una lista con los elementos pares de la lista dada. Respeta el orden y repeticiones
 pares :: [Integer] -> [Integer]
 pares [] = []
 pares (x:xs)
