@@ -116,3 +116,11 @@ maximo (x:y:zs)
 sumarN :: Integer -> [Integer] -> [Integer]
 sumarN n [] = []
 sumarN n (x:xs) = [n + x] ++ sumarN n xs
+
+--e suma el primer valor de la lista a todos las posiciones de la misma, primero inclusive
+sumarPrimero :: [Integer] -> [Integer]
+sumarPrimero (x:xs) = sumarN x (x:xs) -- preguntar si quieren esto o complicarla haciendo una nueva funcion desde 0
+
+--f suma el primer valor de la lista a todas las posiciones de la misma, ultimo inclusive
+sumarUltimo :: [Integer] -> [Integer]
+sumarUltimo xs = sumarN (ultimo xs) xs
