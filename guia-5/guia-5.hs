@@ -103,3 +103,11 @@ productoria :: [Integer] -> Integer
 productoria [] = 0
 productoria [x] = x
 productoria (x:xs) = x * productoria xs
+
+--c devuelve el valor maximo perteneciente a una lista no vacía dada
+maximo :: [Integer] -> Integer
+maximo [x] = x
+maximo (x:y:zs)
+    | x >= sumatoria(y:zs) = x
+    | x >= y = maximo (x:zs)
+    | x <= y = maximo (y:zs)
