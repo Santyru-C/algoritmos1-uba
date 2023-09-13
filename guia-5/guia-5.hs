@@ -50,3 +50,28 @@ quitar :: (Eq t) => t -> [t] -> [t]
 quitar n (x:xs)
     | n == x = xs
     | n /= x = [x] ++ quitar n xs
+-- f
+quitarTodos :: (Eq t) => t -> [t] -> [t]
+quitarTodos n xs
+    | xs == [] = []
+    | n == h = quitarTodos n (t)
+    | n /= h = [head xs] ++ quitarTodos n (t)
+    where
+        h = head xs
+        t = tail xs
+
+eliminarRepetidos :: (Eq t) => [t] -> [t]
+eliminarRepetidos [] = []
+eliminarRepetidos [x] = [x]
+eliminarRepetidos (x:xs)
+    | pertenece x xs = eliminarRepetidos xs -- anto tenia un eliminar repetidos de mas
+    | otherwise = [x] ++ eliminarRepetidos xs
+
+-- esta funcion es de anto, testing
+mismosElementos :: (Eq t ) => [t] -> [t] -> Bool
+mismosElementos [] [] = True
+mismosElementos [] ys = False
+mismosElementos xs [] = False
+mismosElementos (x:xs) (y:ys)
+    | pertenece x (eliminarRepetidos ys) && pertenece y (eliminarRepetidos xs) && mismosElementos (eliminarRepetidos xs) (eliminarRepetidos ys) = True
+    | otherwise = False
