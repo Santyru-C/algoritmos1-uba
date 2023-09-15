@@ -1,3 +1,4 @@
+--import test
 --- 1
 -- a -devuelve la cantidad de elementos de una lista de elementos tipo t
 longitud :: [t] -> Integer
@@ -131,10 +132,26 @@ esPar x
     | mod x 2 == 0 = True
     | otherwise = False
 
---i devuelve una lista con los elementos pares de la lista dada. Respeta el orden y repeticiones
 pares :: [Integer] -> [Integer]
 pares [] = []
 pares (x:xs)
     | esPar x = [x] ++ pares xs
     | otherwise = pares xs
--- agregar una funcion es par --como importo la funcion de la guia 3?
+--como importo la funcion "esPar" de la guia 3?
+
+--i dado un número n y una lista xs, devuelve una lista con los elementos de xs múltiplos de n
+
+filtrar :: Integer -> [Integer] -> [Integer]
+filtrar n [] = []
+filtrar n (x:xs)
+    | n == x = [x] ++ filtrar n xs
+    | otherwise = filtrar n xs
+-- Dado una lista no vacia de enteros y un n entero, devuelve una lista que contenga todas las recurrencias de n en la lista original
+
+
+multiplosDeN :: Integer -> [Integer] -> [Integer]
+--multiplosDeN 0 xs =
+multiplosDeN n [] = []
+multiplosDeN n (x:xs)
+    | mod x n == 0 = [x] ++ multiplosDeN n xs
+    | otherwise = multiplosDeN n xs
