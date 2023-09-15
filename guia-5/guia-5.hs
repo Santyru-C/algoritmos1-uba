@@ -150,7 +150,7 @@ filtrar n (x:xs)
 
 
 multiplosDeN :: Integer -> [Integer] -> [Integer]
---multiplosDeN 0 xs =
+multiplosDeN 0 xs = filtrar 0 xs
 multiplosDeN n [] = []
 multiplosDeN n (x:xs)
     | mod x n == 0 = [x] ++ multiplosDeN n xs
