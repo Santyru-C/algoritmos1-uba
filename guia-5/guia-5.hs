@@ -219,3 +219,8 @@ palabraMasLargaAux (x:y:zs)
 palabraMasLarga :: [Char] -> [Char]
 palabraMasLarga [] = []
 palabraMasLarga xs = palabraMasLargaAux (palabras xs)
+
+-- e devuelve una lista de caracteres concatenando una lista de palabras dada
+aplanar :: [[Char]] -> [Char]
+aplanar [] = []
+aplanar (x:xs) = x ++ aplanar xs
