@@ -186,8 +186,8 @@ contarEspacios (x:xs)
 --contarPalabras :: [Char] -> [Char]
 
 --contar letras seguidas, devuelve 1 cuando llega a un espacio en blacno
--- c
 
+-- c dada una lista arma una nueva lista con palabras de la lista original
 sublistFrom :: Char -> [Char] -> [Char] --return a sublist from the given list starting from the given value
 sublistFrom a [] = []
 sublistFrom a (x:xs)
@@ -206,4 +206,16 @@ palabras (x:xs)
     | x == ' ' = palabras xs
     | otherwise = extraerPrimera (x:xs) : palabras (sublistFrom ' ' xs)
 
+-- d dada una lista de caracteres devuelve su palabra mas larga
+palabraMasLargaAux :: [[Char]] -> [Char]
+palabraMasLargaAux [x] = x
+palabraMasLargaAux (x:y:zs)
+    | xl >= yl = palabraMasLargaAux (x:zs)
+    | otherwise = palabraMasLargaAux (y:zs)
+    where
+        xl = longitud x
+        yl = longitud y
 
+palabraMasLarga :: [Char] -> [Char]
+palabraMasLarga [] = []
+palabraMasLarga xs = palabraMasLargaAux (palabras xs)
