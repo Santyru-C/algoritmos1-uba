@@ -242,7 +242,10 @@ aplanarConNBlancos [x] n = x
 aplanarConNBlancos (x:xs) n = x ++ listFrom n ' ' ++ aplanarConNBlancos xs n -- you can always use replicate for this
 
 --- 5
--- a 
+-- a
+sumaAcumuladaAux :: (Num t) => [t] -> [t]
+sumaAcumuladaAux [] = []
+sumaAcumuladaAux xs = [sumatoria xs] ++ sumaAcumuladaAux (principio xs)
+
 sumaAcumulada :: (Num t) => [t] -> [t]
-sumaAcumulada [] = []
-sumaAcumulada xs = [sumatoria xs] ++ sumaAcumulada (principio xs)
+sumaAcumulada xs = reverso (sumaAcumuladaAux xs)
