@@ -230,3 +230,13 @@ aplanarConBlancos :: [[Char]] -> [Char]
 aplanarConBlancos [] = []
 aplanarConBlancos [x] = x
 aplanarConBlancos (x:xs) = x ++ [' '] ++ aplanarConBlancos xs
+
+-- g
+listFrom :: Integer -> t -> [t] -- return a list containing the passed values n times
+listFrom 0 a = []
+listFrom n a = a : listFrom (n - 1) a
+
+aplanarConNBlancos :: [[Char]] -> Integer -> [Char]
+aplanarConNBlancos [] n = []
+aplanarConNBlancos [x] n = x
+aplanarConNBlancos (x:xs) n = x ++ listFrom n ' ' ++ aplanarConNBlancos xs n -- you can always use replicate for this
