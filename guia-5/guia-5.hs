@@ -168,9 +168,30 @@ ordenar (x:y:zs)
     | otherwise = [x] ++ ordenar (y:zs)
 
 --- 4
+-- a
 sacarBlancosRepetidos :: [Char] -> [Char]
 sacarBlancosRepetidos [] = []
 sacarBlancosRepetidos [x] = [x]
 sacarBlancosRepetidos (x:y:xs)
     | x == ' ' && y == ' ' = sacarBlancosRepetidos (y:xs)
     | otherwise = x:(sacarBlancosRepetidos (y:xs))
+
+-- b dada una lista de caracteres, devuelve la cantidad de palabras que tiene
+contarEspacios :: [Char] -> Integer
+contarEspacios (x:xs)
+    | x == ' ' && xs == [] = 1
+    | x == ' ' = 1 + contarEspacios xs
+    | otherwise = contarEspacios xs
+
+--contarPalabras :: [Char] -> [Char]
+
+--contar letras seguidas, devuelve 1 cuando llega a un espacio en blacno
+-- c
+extraerPrimera :: [Char] -> [Char]
+extraerPrimera [] = []
+extraerPrimera (x:xs)
+    | x == ' ' = []
+    | otherwise = x : extraerPrimera xs
+
+--palabras :: [Char] -> [[Char]]
+
