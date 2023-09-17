@@ -189,6 +189,7 @@ contarEspacios (x:xs)
 -- c
 
 sublistFrom :: Char -> [Char] -> [Char] --return a sublist from the given list starting from the given value
+sublistFrom a [] = []
 sublistFrom a (x:xs)
     | a == x = (x:xs)
     | otherwise = sublistFrom a xs
@@ -203,6 +204,6 @@ palabras :: [Char] -> [[Char]]
 palabras [] = []
 palabras (x:xs)
     | x == ' ' = palabras xs
-    | otherwise = extraerPrimera (x:xs) : palabras xs
+    | otherwise = extraerPrimera (x:xs) : palabras (sublistFrom ' ' xs)
 
 
