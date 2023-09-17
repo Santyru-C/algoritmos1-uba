@@ -149,9 +149,28 @@ filtrar n (x:xs)
 -- Dado una lista no vacia de enteros y un n entero, devuelve una lista que contenga todas las recurrencias de n en la lista original
 
 
-multiplosDeN :: Integer -> [Integer] -> [Integer]
+multiplosDeN :: Integer -> [Integer] -> [Integer] --el 0 era multiplo de todos los numeros no?
 multiplosDeN 0 xs = filtrar 0 xs
 multiplosDeN n [] = []
 multiplosDeN n (x:xs)
     | mod x n == 0 = [x] ++ multiplosDeN n xs
     | otherwise = multiplosDeN n xs
+
+--j dado una lista de enteros, devuelve una nueva lista con los elementos ordenados de forma creciente
+--tranquilamente podemos usar algun algoritmo de ordenamiento
+--empecemos por un naive aproach solo con lo dado en haskell
+
+ordenar :: [Integer] -> [Integer]
+ordenar [] = []
+ordenar [x] = [x]
+ordenar (x:y:zs)
+    | x >= y = [y] ++ ordenar (x:zs)
+    | otherwise = [x] ++ ordenar (y:zs)
+
+--- 4
+sacarBlancosRepetidos :: [Char] -> [Char]
+sacarBlancosRepetidos [] = []
+sacarBlancosRepetidos [x] = [x]
+sacarBlancosRepetidos (x:y:xs)
+    | x == ' ' && y == ' ' = sacarBlancosRepetidos (y:xs)
+    | otherwise = x:(sacarBlancosRepetidos (y:xs))
