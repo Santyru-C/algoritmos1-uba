@@ -95,7 +95,7 @@ capicua xs
 
 --- 3
 --a devuelve la suma de todos los números enteros contenidos en la lista dada
-sumatoria :: [Integer] -> Integer
+sumatoria :: (Num t) => [t] -> t
 sumatoria [] = 0
 sumatoria (x:xs) = x + sumatoria xs
 
@@ -240,3 +240,9 @@ aplanarConNBlancos :: [[Char]] -> Integer -> [Char]
 aplanarConNBlancos [] n = []
 aplanarConNBlancos [x] n = x
 aplanarConNBlancos (x:xs) n = x ++ listFrom n ' ' ++ aplanarConNBlancos xs n -- you can always use replicate for this
+
+--- 5
+-- a 
+sumaAcumulada :: (Num t) => [t] -> [t]
+sumaAcumulada [] = []
+sumaAcumulada xs = [sumatoria xs] ++ sumaAcumulada (principio xs)
