@@ -187,11 +187,22 @@ contarEspacios (x:xs)
 
 --contar letras seguidas, devuelve 1 cuando llega a un espacio en blacno
 -- c
+
+sublistFrom :: Char -> [Char] -> [Char] --return a sublist from the given list starting from the given value
+sublistFrom a (x:xs)
+    | a == x = (x:xs)
+    | otherwise = sublistFrom a xs
+
 extraerPrimera :: [Char] -> [Char]
 extraerPrimera [] = []
 extraerPrimera (x:xs)
     | x == ' ' = []
     | otherwise = x : extraerPrimera xs
 
---palabras :: [Char] -> [[Char]]
+palabras :: [Char] -> [[Char]]
+palabras [] = []
+palabras (x:xs)
+    | x == ' ' = palabras xs
+    | otherwise = extraerPrimera (x:xs) : palabras xs
+
 
