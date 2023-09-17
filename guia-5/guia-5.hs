@@ -224,3 +224,9 @@ palabraMasLarga xs = palabraMasLargaAux (palabras xs)
 aplanar :: [[Char]] -> [Char]
 aplanar [] = []
 aplanar (x:xs) = x ++ aplanar xs
+
+-- f a partir de una lista de palabras, arma una lista de caracteres insertando un blanco entre cada palabra
+aplanarConBlancos :: [[Char]] -> [Char]
+aplanarConBlancos [] = []
+aplanarConBlancos [x] = x
+aplanarConBlancos (x:xs) = x ++ [' '] ++ aplanarConBlancos xs
