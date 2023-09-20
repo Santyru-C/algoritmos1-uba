@@ -133,6 +133,14 @@ f2 n q = q ^ n + f2 (n - 1) q
 -- c
 f3 :: Integer -> Float -> Float -- la especificacion dice que n => N{0} pero eso no es posible porque el indicide comienza en 1
 f3 n q = f2 (n * 2) q
+
+-- d
+f4Aux :: Integer -> Integer -> Float -> Float
+f4Aux 0 n q = q ^ n
+f4Aux i n q = q ^ (i + n) + f4Aux (i - 1) n q
+
+f4 :: Integer -> Float -> Float
+f4 n q = f4Aux n n q 
 --- 11
 -- a 
 
