@@ -140,10 +140,10 @@ f4Aux 0 n q = q ^ n
 f4Aux i n q = q ^ (i + n) + f4Aux (i - 1) n q
 
 f4 :: Integer -> Float -> Float
-f4 n q = f4Aux n n q 
+f4 n q = f4Aux n n q
+
 --- 11
 -- a 
-
 {- 
 problema eAprox(n: N>=0): R {
     requiere:{True}
@@ -160,7 +160,6 @@ eAprox 0 = 1
 eAprox n = (1 / fromIntegral (factorial n)) + eAprox (n - 1)
 
 -- b
-
 e :: Float
 e = eAprox 10
 
@@ -182,7 +181,6 @@ raizDe2Aprox :: Integer -> Float
 raizDe2Aprox n = sucesionAux n - 1
 
 --- 13
-
 {-
 problema f(n: N, m: N): N { -- es un nested loop ladrones
     requiere:{True}
@@ -199,7 +197,6 @@ sumatoria13 1 j = sumatoriaAux 1 j
 sumatoria13 i j = sumatoriaAux i j + sumatoria13 (i - 1) j
 
 --- 14
-
 {-
 problema sumaPotencias(q:N, n:N, m:N): N { 
     requiere:{True}
@@ -228,9 +225,7 @@ sumaRacionales 1 m = sumaRacionalesParcial 1 m
 sumaRacionales n m = sumaRacionalesParcial n m + sumaRacionalesParcial (n - 1) m
 
 --- 16
-
 -- a
-
 menorDivisorf :: Integer -> Integer -> Integer -- with accumulator
 menorDivisorf n d
     | n == d = n
@@ -249,7 +244,6 @@ menorDivisor :: Integer -> Integer
 menorDivisor n = menorDivisorAux n 2
 
 -- b
-
 esPrimoAux :: Integer -> Integer -> Bool
 esPrimoAux n d
     | d == 1 = True
@@ -257,18 +251,22 @@ esPrimoAux n d
     | otherwise = esPrimoAux n (d - 1)
 
 esPrimo :: Integer -> Bool
-esPrimo 1 = True
+esPrimo 1 = False
 esPrimo n = esPrimoAux n (n - 1)
 
 -- c
+devolverMenor :: Integer -> Integer -> Integer
+devolverMenor a b
+    | a >= b = a
+    | otherwise = b
 
 sonCoprimosAux :: Integer -> Integer -> Integer -> Bool
 sonCoprimosAux a b n
-    | mod a n == 0 && mod b n == 0 = False
     | n == 1 = True
+    | (mod a n == 0) && (mod b n == 0) = False
     | otherwise = sonCoprimosAux a b (n - 1) 
 
 sonCoprimos :: Integer -> Integer -> Bool
 sonCoprimos a b
     | a == 1 || b == 1 = True
-    | a == b = False
+    | otherwise = sonCoprimosAux a b (devolverMenor a b)
