@@ -270,3 +270,38 @@ sonCoprimos :: Integer -> Integer -> Bool
 sonCoprimos a b
     | a == 1 || b == 1 = True
     | otherwise = sonCoprimosAux a b (devolverMenor a b)
+
+-- d (esta sirve para el ultimo de la guia 5) A MEJORAR
+nEsimoPrimoAux :: Integer -> Integer -> Integer
+nEsimoPrimoAux 0 n = (n - 1)
+nEsimoPrimoAux i n
+    | esPrimo n = nEsimoPrimoAux (i - 1) (n + 1)
+    | otherwise = nEsimoPrimoAux i (n + 1)
+
+nEsimoPrimo :: Integer -> Integer
+nEsimoPrimo i = nEsimoPrimoAux i 2
+
+--- 17 True si y solo si n es algun valor de la secuencia de Fibonacci [REVISAR]
+esFibonacciAux :: Integer -> Integer -> Bool
+esFibonacciAux (-1) n = False
+esFibonacciAux i n
+    | fibonacci i == n = True
+    | otherwise = esFibonacciAux (i - 1) n
+
+esFibonacci :: Integer -> Bool
+esFibonacci n = esFibonacciAux (n*2) n
+
+--- 18
+
+devolverMayor :: Integer -> Integer -> Integer
+devolverMayor a b
+    | a >= b = a
+    | otherwise = b
+compararDigitosPares :: Integer -> Integer -> Integer -- ignorando el uso de listas
+--quiero que esta funcion compare un numero con todos los digitos dados y me diga si es mayor estos
+compararDigitosPares a 0 = a
+compararDigitosPares a b
+    | ultimoEsPar = compararDigitosPares (devolverMayor a (ultimoDigito b)) (div b 10)
+    | otherwise = compararDigitosPares a (div b 10)
+    where
+        ultimoEsPar = mod (ultimoDigito b) 2 == 0
