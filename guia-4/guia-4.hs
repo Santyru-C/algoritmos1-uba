@@ -297,11 +297,17 @@ devolverMayor :: Integer -> Integer -> Integer
 devolverMayor a b
     | a >= b = a
     | otherwise = b
+
+ultimoEsPar :: Integer -> Bool
+ultimoEsPar n = mod (ultimoDigito n) 2 == 0
+
 compararDigitosPares :: Integer -> Integer -> Integer -- ignorando el uso de listas
---quiero que esta funcion compare un numero con todos los digitos dados y me diga si es mayor estos
 compararDigitosPares a 0 = a
 compararDigitosPares a b
-    | ultimoEsPar = compararDigitosPares (devolverMayor a (ultimoDigito b)) (div b 10)
-    | otherwise = compararDigitosPares a (div b 10)
+    | ultimoEsPar b = compararDigitosPares (devolverMayor a (ultimoDigito b)) (sacarUltimob)
+    | otherwise = compararDigitosPares a (sacarUltimob)
     where
-        ultimoEsPar = mod (ultimoDigito b) 2 == 0
+        sacarUltimob = div b 10
+
+mayorDigitoPar :: Integer -> Integer
+mayorDigitoPar 0 = 0
