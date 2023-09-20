@@ -248,4 +248,7 @@ sumaAcumuladaAux [] = []
 sumaAcumuladaAux xs = [sumatoria xs] ++ sumaAcumuladaAux (principio xs)
 
 sumaAcumulada :: (Num t) => [t] -> [t]
+sumaAcumulada [] = []
 sumaAcumulada xs = reverso (sumaAcumuladaAux xs)
+
+-- b
