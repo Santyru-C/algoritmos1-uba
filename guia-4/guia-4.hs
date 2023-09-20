@@ -1,17 +1,16 @@
+module Guia4 where
 -- NO OLVIDAR EL USO DE REDUCCIÓN EN PAPEL PARA VERIFICAR LA RECURSION
 -- RECURSION:
 -- CASO BASE
 -- LLAMADO RECURSIVO QUE REDUZCA AL CASO BASE
 
 --- 1
-
 fibonacci :: Integer -> Integer
 fibonacci 0 = 0
 fibonacci 1 = 1
 fibonacci x = fibonacci (x - 1) + fibonacci (x - 2)
 
 --- 2
-
 parteEntera :: Float -> Integer
 parteEntera x
     | (x > -1) && (x < 1) = 0
@@ -33,7 +32,6 @@ esDivisible a b
     | otherwise = False 
 
 --- 4
-
 {-
 problema sumaImpares (n:N): sumaImp:N {
     requiere: {True}
@@ -47,8 +45,26 @@ sumaImpares :: Integer -> Integer
 sumaImpares 1 = 1
 sumaImpares x = (2 * x - 1) + sumaImpares (x - 1)
 
---- 7
+--- 5
+medioFact :: Integer -> Integer
+medioFact x
+    | (x == 1) || (x == 0) = 1
+    | otherwise = x * medioFact(x - 2)
 
+--- 6
+{-
+problema sumaDigitos (n:N): N {
+    requiere: {True} <-- en haskell requeriremos que el usuario no ingrese n < 1
+    asegura: {res = la suma de los digitos de n}
+} 
+-}
+sumaDigitos :: Integer -> Integer
+sumaDigitos n
+    | p_decimal == 0 = n
+    | otherwise = mod n 10 + sumaDigitos(p_decimal)
+    where p_decimal = div n 10
+
+--- 7
 todosDigitosIguales :: Integer -> Bool
 todosDigitosIguales x
     | head == 0 = True
@@ -56,29 +72,7 @@ todosDigitosIguales x
     | otherwise = False
     where head = div x 10
 
---- 5
-
-medioFact :: Integer -> Integer
-medioFact x
-    | (x == 1) || (x == 0) = 1
-    | otherwise = x * medioFact(x - 2)
-
---- 6
-
-{-
-problema sumaDigitos (n:N): N {
-    requiere: {True} <-- en haskell requeriremos que el usuario no ingrese n < 1
-    asegura: {res = la suma de los digitos de n}
-} 
--}
-
-sumaDigitos :: Integer -> Integer
-sumaDigitos n
-    | p_decimal == 0 = n
-    | otherwise = mod n 10 + sumaDigitos(p_decimal)
-    where p_decimal = div n 10
 --- 8 
-
 cantDigitos :: Integer -> Integer
 cantDigitos n
     | n < 10 = 1
@@ -89,8 +83,7 @@ iesimoDigito n i
     | i == cantDigitos(n) = mod n 10
     | otherwise = iesimoDigito (div n 10) i
 
---- 9
-
+--- 9 REVISAR
 {-
 problema esCapicua (n:N>=0): Bool {
     requiere:{n no comienza con 0}
@@ -114,9 +107,7 @@ esCapicua x
     | otherwise = False
 
 --- 10
-
 -- a
-
 {-
 problema f1 (n: N>=0): N {
     requiere:{True}
@@ -248,3 +239,27 @@ menorDivisorAux n d
 menorDivisor :: Integer -> Integer
 menorDivisor n = menorDivisorAux n 2
 
+-- b
+
+esPrimoAux :: Integer -> Integer -> Bool
+esPrimoAux n d
+    | d == 1 = True
+    | mod n d == 0 = False
+    | otherwise = esPrimoAux n (d - 1)
+
+esPrimo :: Integer -> Bool
+esPrimo 1 = True
+esPrimo n = esPrimoAux n (n - 1)
+
+-- c
+
+sonCoprimosAux :: Integer -> Integer -> Integer -> Bool
+sonCorpimosAux a b n
+    | mod a n == 0 && mod b n == 0 = False
+    | n == 1 = True
+    | otherwise = sonCorpimosAux a b (n - 1) 
+
+sonCoprimos :: Integer -> Integer -> Bool
+sonCoprimos a b
+    | a == 1 || b == 1 = True
+    | a == b = False
