@@ -131,7 +131,8 @@ f2 1 q = q
 f2 n q = q ^ n + f2 (n - 1) q
 
 -- c
-
+f3 :: Integer -> Float -> Float -- la especificacion dice que n => N{0} pero eso no es posible porque el indicide comienza en 1
+f3 n q = f2 (n * 2) q
 --- 11
 -- a 
 
@@ -254,10 +255,10 @@ esPrimo n = esPrimoAux n (n - 1)
 -- c
 
 sonCoprimosAux :: Integer -> Integer -> Integer -> Bool
-sonCorpimosAux a b n
+sonCoprimosAux a b n
     | mod a n == 0 && mod b n == 0 = False
     | n == 1 = True
-    | otherwise = sonCorpimosAux a b (n - 1) 
+    | otherwise = sonCoprimosAux a b (n - 1) 
 
 sonCoprimos :: Integer -> Integer -> Bool
 sonCoprimos a b
