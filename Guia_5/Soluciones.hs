@@ -254,7 +254,13 @@ sumaAcumulada [] = []
 sumaAcumulada xs = reverso (sumaAcumuladaAux xs)
 
 -- b
-
 -- vamos a necesitar funciones que nos cuenten los primos asi que vuelvo un cacho a la guia 4
 descomponerEnPrimosAux :: Integer -> Integer -> [Integer]
-descomponerEnPrimosAux 2 2 = [2]
+descomponerEnPrimosAux 1 i = []
+descomponerEnPrimosAux n i
+    | mod n (nEsimoPrimo i) == 0 = [nEsimoPrimo i] ++ descomponerEnPrimosAux (div n (nEsimoPrimo i)) 1
+    | otherwise = descomponerEnPrimosAux n (i + 1)
+
+descomponerEnPrimos :: [Integer] -> [[Integer]]
+descomponerEnPrimos [] = []
+descomponerEnPrimos (x:xs) = [descomponerEnPrimosAux x 1] ++ descomponerEnPrimos xs
