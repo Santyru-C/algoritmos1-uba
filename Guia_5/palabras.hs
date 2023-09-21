@@ -25,6 +25,9 @@ sacarBlancosRepetidos (x:y:xs)
     | x == ' ' && y == ' ' = sacarBlancosRepetidos (y:xs)
     | otherwise = x:(sacarBlancosRepetidos (y:xs))
 
+-- dada una lista de caracteres devuelve la cantidad de palabras que tiene
+contarPalabras :: [Char] -> Int
+contarPalabras [] = 0
 test :: [Integer] -> [Integer]
 test (x:y:z:xs) = xs
 

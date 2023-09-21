@@ -1,4 +1,4 @@
---import test
+module Guia_5.Soluciones where
 --- 1
 -- a -devuelve la cantidad de elementos de una lista de elementos tipo t
 longitud :: [t] -> Integer
@@ -252,3 +252,7 @@ sumaAcumulada [] = []
 sumaAcumulada xs = reverso (sumaAcumuladaAux xs)
 
 -- b
+
+-- vamos a necesitar funciones que nos cuenten los primos asi que vuelvo un cacho a la guia 4
+descomponerEnPrimosAux :: Integer -> Integer -> [Integer]
+descomponerEnPrimosAux 2 2 = [2]
