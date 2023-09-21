@@ -331,9 +331,12 @@ esSumaInicialDePrimos n = esSumaInicialDePrimosAux n 1
 --- 21
 sumaDeCombinaciones :: Integer -> Integer -> Integer -> Integer
 sumaDeCombinaciones a 0 n
-    | (a ^ 2) <= n = 1
+    | (a ^ 2) <= (n ^ 2) = 1
     | otherwise = 0
 sumaDeCombinaciones a b n
     | (a ^ 2) + (b ^ 2) <= (n ^ 2) = 1 + sumaDeCombinaciones a (b - 1) n
     | otherwise = sumaDeCombinaciones a (b - 1) n
---pitagoras :: Integer -> Integer -> Integer -> Integer
+
+pitagoras :: Integer -> Integer -> Integer -> Integer
+pitagoras 0 b n = sumaDeCombinaciones 0 b n
+pitagoras a b n = (sumaDeCombinaciones a b n) + pitagoras (a - 1) b n
