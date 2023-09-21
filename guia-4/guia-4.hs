@@ -326,3 +326,14 @@ esSumaInicialDePrimos :: Integer -> Bool
 esSumaInicialDePrimos 0 = False
 esSumaInicialDePrimos 2 = True
 esSumaInicialDePrimos n = esSumaInicialDePrimosAux n 1
+
+--- 20 [No la entendí]
+--- 21
+sumaDeCombinaciones :: Integer -> Integer -> Integer -> Integer
+sumaDeCombinaciones a 0 n
+    | (a ^ 2) <= n = 1
+    | otherwise = 0
+sumaDeCombinaciones a b n
+    | (a ^ 2) + (b ^ 2) <= (n ^ 2) = 1 + sumaDeCombinaciones a (b - 1) n
+    | otherwise = sumaDeCombinaciones a (b - 1) n
+--pitagoras :: Integer -> Integer -> Integer -> Integer
