@@ -314,3 +314,15 @@ mayorDigitoPar 0 = 0
 mayorDigitoPar n
     | ultimoEsPar n = compararDigitosPares (mod n 10) (div n 10)
     | otherwise = mayorDigitoPar (div n 10)
+
+--- 19
+esSumaInicialDePrimosAux :: Integer -> Integer -> Bool
+esSumaInicialDePrimosAux 0 i = True
+esSumaInicialDePrimosAux n i
+    | n < 2 = False
+    | n > 2 = esSumaInicialDePrimosAux (n - (nEsimoPrimo i)) (i + 1)
+
+esSumaInicialDePrimos :: Integer -> Bool
+esSumaInicialDePrimos 0 = False
+esSumaInicialDePrimos 2 = True
+esSumaInicialDePrimos n = esSumaInicialDePrimosAux n 1
