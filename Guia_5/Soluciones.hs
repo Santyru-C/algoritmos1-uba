@@ -1,4 +1,6 @@
 module Guia_5.Soluciones where
+
+import Guia_4.Soluciones
 --- 1
 -- a -devuelve la cantidad de elementos de una lista de elementos tipo t
 longitud :: [t] -> Integer
