@@ -2,28 +2,36 @@ module Guia_3.Soluciones where
     
 doubleMe x = x + x
 
+---1
+--a
 ejercicio1a :: Integer -> Integer
 ejercicio1a x 
     | x == 1 = 8
     | x == 4 = 131
     | x == 16 = 16
 
+--b
 ejercicio1b :: Integer -> Integer
 ejercicio1b 8 = 16
 ejercicio1b 16 = 4
 ejercicio1b 131 = 1
 
+--c
 ejercicio1c :: Integer -> Integer
 ejercicio1c x = (ejercicio1b(ejercicio1a x))
 
+--d
 ejercicio1d :: Integer -> Integer
 ejercicio1d x = (ejercicio1a(ejercicio1b x))
 
+---2
+--a
 absoluto :: Integer -> Integer
 absoluto x
     | x < 0 = (-x)
     | otherwise = x
 
+--b
 absolutoFloat :: Float -> Float
 absolutoFloat x
     | x < 0 = -x
@@ -37,12 +45,14 @@ maximoAbsoluto x y
         absx = absoluto x
         absy = absoluto y
 
+--c
 maximo3 :: Integer -> Integer -> Integer -> Integer
 maximo3 x y z
     | (x > y) && (x > z) = x
     | (y > x) && (y > z) = y
     | otherwise = z
 
+--d
 algunoEs0p :: Float -> Float -> Bool
 algunoEs0p 0 _ = True
 algunoEs0p _ 0 = True
@@ -53,6 +63,7 @@ algunoEs0g x y
     | x == 0 || y == 0 = True
     | otherwise = False
 
+--e
 ambosSon0p :: Float -> Float -> Bool
 ambosSon0p 0 0 = True
 ambosSon0p _ _ = False
@@ -62,6 +73,7 @@ ambosSon0g x y
     | (x == 0) && (y == 0) = True
     | otherwise = False
 
+--f
 mismoIntervalo :: Float -> Float -> Bool
 mismoIntervalo x y
     | (x <= 3) && (y <= 3) = True
@@ -69,6 +81,7 @@ mismoIntervalo x y
     | (x > 7) && (y > 7) = True
     | otherwise = False
 
+--g
 sumaDistintos :: Integer -> Integer -> Integer -> Integer
 sumaDistintos x y z
     | (x /= y) && (y /= z) = x + y + z
@@ -76,6 +89,7 @@ sumaDistintos x y z
     | (x /= y) && (y == z) = x + z
     | otherwise = x
 
+--h
 esMultiploDe :: Integer -> Integer -> Bool
 esMultiploDe x y
     | (mod x y == 0) = True
@@ -84,18 +98,21 @@ esMultiploDe x y
 esMultiploDep :: Integer -> Integer -> Bool
 esMultiploDep x y = (mod x y == 0) || False
 
+--i
 digitoUnidades :: Integer -> Integer
 digitoUnidades x = (mod x 10)
 
+--j
 digitoDecenas :: Integer -> Integer
 digitoDecenas x = div ((mod x 100) - (digitoUnidades x)) 10
 
+---3
 estanRelacionados :: Integer -> Integer -> Bool
 estanRelacionados a b = (a*a + a*b*c == 0) || False
     where c = (-(div (a*a) (a*b)))
 
----
-
+---4
+--a
 {- 
 problema prodInt ((Float, Float), (Float, Float)): Float {
     requiere: {True}
@@ -106,8 +123,7 @@ problema prodInt ((Float, Float), (Float, Float)): Float {
 prodInt :: (Float, Float) -> (Float, Float) -> Float
 prodInt (x, y) (a, b) = (x*a) + (y*b)
 
----
-
+--b
 {-
 problema todoMenor (p1:(Float, Float), p2:(Float, Float)): Bool {
     requiere: {True}
@@ -116,12 +132,10 @@ problema todoMenor (p1:(Float, Float), p2:(Float, Float)): Bool {
                 respectivamente}
 }
 -}
-
 todoMenor :: (Float, Float) -> (Float, Float) -> Bool
 todoMenor (x, y) (a, b) = ((x < a) && (y < b)) || False
 
----
-
+--c
 {-
 problema distanciaPuntos (p1:(Float, Float), p2:(Float, Float)): Bool {
     requiere: {True}
@@ -132,8 +146,7 @@ problema distanciaPuntos (p1:(Float, Float), p2:(Float, Float)): Bool {
 distanciaPuntos :: (Float, Float) -> (Float, Float) -> Float
 distanciaPuntos (x, y) (a, b) = ((a-x)**2 + (b-y)**2)**(1/2)
 
----
-
+--d
 {-
 problema sumaTerna (terna:(Integer, Integer, Integer)): Integer {
     requiere: {True}
@@ -144,8 +157,7 @@ problema sumaTerna (terna:(Integer, Integer, Integer)): Integer {
 sumaTerna :: (Integer, Integer, Integer) -> Integer
 sumaTerna (x, y , z) = x + y + z
 
----
-
+--e
 {-
 problema sumarSoloMultiplos(terna:(Integer, Integer, Integer), n:Nat): Integer {
     requiere: {n > 0}
@@ -153,7 +165,6 @@ problema sumarSoloMultiplos(terna:(Integer, Integer, Integer), n:Nat): Integer {
         de n}
 }
 -}
-
 devolverSiEsMultiplo :: Integer -> Integer -> Integer
 devolverSiEsMultiplo x y
     | esMultiploDe x y = x
@@ -164,8 +175,7 @@ sumarSoloMultiplos (x, y, z) n = (devolverSiEsMultiplo x n)
                                 + (devolverSiEsMultiplo y n) 
                                 + (devolverSiEsMultiplo z n)
 
----
-
+--f
 {-
 problema posPrimerPar (terna:(Integer, Integer, Integer)): Integer {
     requiere: {True}
@@ -184,8 +194,7 @@ posPrimerPar (x, y, z)
     | esPar z = 2
     | otherwise = 4
 
----
-
+--g
 {-
 problema crearPar (dupla:(a, b)): (a ,b){
     requiere: {True}
@@ -196,8 +205,7 @@ problema crearPar (dupla:(a, b)): (a ,b){
 crearPar :: a -> b -> (a, b)
 crearPar a b = (a, b)
 
----
-
+--h
 {-
 problema invertir (dupla:(a, b)): (b, a) {
     requiere: {True}
@@ -208,7 +216,7 @@ problema invertir (dupla:(a, b)): (b, a) {
 invertir :: (a, b) -> (b, a)
 invertir (a, b) = (b, a)
 
----
+---5
 aux1 :: Integer -> Integer
 aux1 x
     | x <= 7 = x * x
@@ -222,18 +230,17 @@ aux2 x
 todosMenores :: (Integer, Integer, Integer) -> Bool
 todosMenores (x, y, z) = (aux1 x > aux2 x) && (aux1 y > aux2 y) && (aux1 z > aux2 z)
 
----
-
+---6
 bisiesto :: Integer -> Bool
-bisiesto x = ((esMultiploDe x 100) && (esMultiploDe x 400)) || (esMultiploDe x 4)
+bisiesto x
+    | esMultiploDe x 100 = esMultiploDe x 400
+    | otherwise = esMultiploDe x 4
 
----
-
+---7
 distanciaManhattan :: (Float, Float, Float) -> (Float, Float, Float) -> Float
 distanciaManhattan (x1, y1, z1) (x2, y2, z2) = absolutoFloat(x1-x2) + absolutoFloat(y1-y2) + absolutoFloat(z1-z2)
 
----
-
+---8
 sumaUltimosDosDigitos :: Integer -> Integer
 sumaUltimosDosDigitos x = (mod x 10) + (mod (div x 10) 10)
 
@@ -246,12 +253,5 @@ comparar x y
         a = sumaUltimosDosDigitos x
         b = sumaUltimosDosDigitos y
 
----
-
-{-
-problema f1 (x: R): R {
-    requiere: {True}
-    asegura: {res = 1 si n == 0 y res = }
-}
--}
+---9 (Hacelo en la carpeta VAGO)
 
