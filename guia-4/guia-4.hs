@@ -311,3 +311,6 @@ compararDigitosPares a b
 
 mayorDigitoPar :: Integer -> Integer
 mayorDigitoPar 0 = 0
+mayorDigitoPar n
+    | ultimoEsPar n = compararDigitosPares (mod n 10) (div n 10)
+    | otherwise = mayorDigitoPar (div n 10)
