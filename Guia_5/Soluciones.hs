@@ -1,5 +1,5 @@
 module Guia_5.Soluciones where
-
+--COMPLETA - FALTA TEST SUITE
 import Guia_4.Soluciones
 --- 1
 -- a -devuelve la cantidad de elementos de una lista de elementos tipo t
@@ -185,8 +185,8 @@ contarEspacios (x:xs)
     | x == ' ' = 1 + contarEspacios xs
     | otherwise = contarEspacios xs
 
---contarPalabras :: [Char] -> [Char]
-
+contarPalabras :: [Char] -> Integer -- hice la siguiente primero y pienso usarla para hacer esta
+contarPalabras xs = longitud (palabras xs)
 --contar letras seguidas, devuelve 1 cuando llega a un espacio en blacno
 
 -- c dada una lista arma una nueva lista con palabras de la lista original

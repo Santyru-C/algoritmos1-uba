@@ -1,5 +1,5 @@
 module Guia_3.Soluciones where
-    
+-- COMPLETA - FALTAN PRUEBAS DE UNIDAD
 doubleMe x = x + x
 
 ---1

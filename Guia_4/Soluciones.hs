@@ -1,5 +1,5 @@
 module Guia_4.Soluciones where
-
+-- FALTAN capicua y esFibonacci
 import Guia_3.Soluciones
 -- NO OLVIDAR EL USO DE REDUCCIÓN EN PAPEL PARA VERIFICAR LA RECURSION
 -- RECURSION:
@@ -292,6 +292,8 @@ esFibonacciAux i n
 
 esFibonacci :: Integer -> Bool
 esFibonacci n = esFibonacciAux (n*2) n
+
+-- tambien le podriamos restar los terminos de la sucesion hasta llegar a 0
 
 --- 18
 
