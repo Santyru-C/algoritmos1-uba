@@ -12,6 +12,12 @@ fibonacci 0 = 0
 fibonacci 1 = 1
 fibonacci x = fibonacci (x - 1) + fibonacci (x - 2)
 
+fibonacci1 :: Integer -> Integer -- hago una con tail recursion porque mi notebook no se banca los trapos
+fibonacci1 n = fibTail n 0 1
+  where
+    fibTail 0 a _ = a
+    fibTail n a b = fibTail (n - 1) b (a + b)
+
 --- 2
 parteEntera :: Float -> Integer
 parteEntera x
@@ -287,7 +293,7 @@ nEsimoPrimo i = nEsimoPrimoAux i 2
 esFibonacciAux :: Integer -> Integer -> Bool
 esFibonacciAux (-1) n = False
 esFibonacciAux i n
-    | fibonacci i == n = True
+    | fibonacci1 i == n = True
     | otherwise = esFibonacciAux (i - 1) n
 
 esFibonacci :: Integer -> Bool
