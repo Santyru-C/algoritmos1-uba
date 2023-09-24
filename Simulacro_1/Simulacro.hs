@@ -32,3 +32,8 @@ amigosDe persona [] = []
 amigosDe persona (rel:relaciones)
     | seEncuentraEnRelacion persona rel = [extraerAmigoDeTupla persona rel] ++ amigosDe persona relaciones
     | otherwise = amigosDe persona relaciones
+
+---3
+aplanarListaDeRelaciones :: [Relacion] -> [String]
+aplanarListaDeRelaciones [] = []
+aplanarListaDeRelaciones ((a,b):xs) = [a] ++ [b] ++ aplanarListaDeRelaciones xs
