@@ -55,8 +55,25 @@ repeticionesDe e (x:xs)
     | e == x = 1 + repeticionesDe e xs
     | otherwise = repeticionesDe e xs
 
+extraerElemento :: String -> [String] -> [String]
+extraerElemento e [] = []
+extraerElemento e (x:xs)
+    | e == x = extraerElemento e xs
+    | otherwise = [x] ++ extraerElemento e xs
+
+cantidadDeAmigosPorPersona :: [String] -> [(String, Integer)]
+cantidadDeAmigosPorPersona [] = []
+cantidadDeAmigosPorPersona xs = [((head xs), repeticionesDe (head xs) xs)] ++ cantidadDeAmigosPorPersona (extraerElemento (head xs) xs)
+
 tuplaDeRepetidos :: String -> [String] -> (String, Integer)
 tuplaDeRepetidos per xs = (per, repeticionesDe per xs)
 
+personaConMasAmigosAux :: [(String, Integer)] -> String
+personaConMasAmigosAux [(pers, num)] = pers
+personaConMasAmigosAux ((a,b):(c,d):xs)
+    | b >= d = personaConMasAmigosAux ((a,b):xs)
+    | otherwise = personaConMasAmigosAux ((c,d):xs)
+
 personaConMasAmigos :: [Relacion] -> String
 personaConMasAmigos [] = []
+personaConMasAmigos xs = personaConMasAmigosAux (cantidadDeAmigosPorPersona (aplanarListaDeRelaciones xs))
