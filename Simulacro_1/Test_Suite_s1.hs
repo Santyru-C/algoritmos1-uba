@@ -25,7 +25,8 @@ tests = TestList [
     TestLabel "relacionesValidas" testSuiteRelacionesValidas,
     TestLabel "tieneRepetidos" testSuiteTieneRepetidos,
     TestLabel "amigosDe" testSuiteAmigosDe,
-    TestLabel "seEncuentraEnRelacion" testSuiteSeEncuentraEnRelacion
+    TestLabel "seEncuentraEnRelacion" testSuiteSeEncuentraEnRelacion,
+    TestLabel "aplanarListaDeRelaciones" testSuiteAplanarListaDeRelaciones
     ]
 
 testSuiteTieneRepetidos = test [
@@ -52,4 +53,10 @@ testSuiteAmigosDe = test [
     "lista de relaciones vacia" ~: (amigosDe p1 []) ~?= [],
     "persona con relaciones" ~: (amigosDe p1 [(p1,p2),(p1,p3),(p1,p4)]) ~?= [p2,p3,p4],
     "persona sin relaciones" ~: (amigosDe p1 [(p2,p3),(p2,p4)]) ~?= []
+    ]
+
+testSuiteAplanarListaDeRelaciones = test [
+    "lista vacia" ~: (aplanarListaDeRelaciones []) ~?= [],
+    "lista con una relacion" ~: (aplanarListaDeRelaciones listaValida1) ~?= [p1, p2],
+    "lista con varias relaciones" ~: (aplanarListaDeRelaciones listaValida2) ~?= [p1, p2, p3, p4]
     ]
