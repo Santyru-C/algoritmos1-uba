@@ -23,7 +23,9 @@ run = runTestTT tests
 
 tests = TestList [
     TestLabel "relacionesValidas" testSuiteRelacionesValidas,
-    TestLabel "tieneRepetidos" testSuiteTieneRepetidos
+    TestLabel "tieneRepetidos" testSuiteTieneRepetidos,
+    TestLabel "amigosDe" testSuiteAmigosDe,
+    TestLabel "seEncuentraEnRelacion" testSuiteSeEncuentraEnRelacion
     ]
 
 testSuiteTieneRepetidos = test [
@@ -39,6 +41,11 @@ testSuiteRelacionesValidas = test [
     "dos relaciones validas" ~: (relacionesValidas listaValida2) ~?= True,
     "dos relaciones repetidas" ~: (relacionesValidas listaInvalida1) ~?= False,
     "dos relaciones iguales" ~: (relacionesValidas listaInvalida2) ~?= False
+    ]
+
+testSuiteSeEncuentraEnRelacion = test [ --no pueden ingresar tuplas vacias porque iria en contra de los requerimientos
+    "persona en relacion" ~: (seEncuentraEnRelacion p1 rel1) ~?= True,
+    "persona sin relacion" ~: (seEncuentraEnRelacion p1 rel2) ~?= False
     ]
 
 testSuiteAmigosDe = test [
