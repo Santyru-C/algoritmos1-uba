@@ -33,7 +33,8 @@ tests = TestList [
     TestLabel "sacarRepetidos" testSuiteSacarRepetidos,
     TestLabel "personas" testSuitePersonas,
     TestLabel "personaConMasAmigos" testSuitePersonaConMasAmigos,
-    TestLabel "repeticionesDe" testSuiteRepeticionesDe
+    TestLabel "repeticionesDe" testSuiteRepeticionesDe,
+    TestLabel "tuplaDeRepetidos" testSuiteTuplaDeRepetidos
     ]
 
 testSuiteTieneRepetidos = test [
@@ -95,8 +96,9 @@ testSuiteRepeticionesDe = test [
 testSuiteTuplaDeRepetidos = test [
     "lista vacia" ~: (tuplaDeRepetidos p1 []) ~?= (p1, 0),
     "sin repetidos" ~: (tuplaDeRepetidos p1 [p2, p3, p4]) ~?= (p1, 0),
-    "con repetidos" ~: (tuplasDeRepetidos p1 [p1, p1, p2]) ~?= (p1, 2)
+    "con repetidos" ~: (tuplaDeRepetidos p1 [p1, p1, p2]) ~?= (p1, 2)
     ]
+
 --- funciones aux
 extraerElemento :: String -> [String] -> [String]
 extraerElemento e [] = []
