@@ -43,3 +43,9 @@ sacarRepetidos [] = []
 sacarRepetidos (x:xs)
     | elem x xs = sacarRepetidos xs
     | otherwise = [x] ++ sacarRepetidos xs
+
+personas :: [Relacion] -> [String]
+personas [] = []
+personas relaciones = sacarRepetidos (aplanarListaDeRelaciones relaciones)
+
+---4
