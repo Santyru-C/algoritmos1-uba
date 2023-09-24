@@ -31,7 +31,8 @@ tests = TestList [
     TestLabel "seEncuentraEnRelacion" testSuiteSeEncuentraEnRelacion,
     TestLabel "aplanarListaDeRelaciones" testSuiteAplanarListaDeRelaciones,
     TestLabel "sacarRepetidos" testSuiteSacarRepetidos,
-    TestLabel "personas" testSuitePersonas
+    TestLabel "personas" testSuitePersonas,
+    TestLabel "personaConMasAmigos" testSuitePersonaConMasAmigos
     ]
 
 testSuiteTieneRepetidos = test [
@@ -78,6 +79,10 @@ testSuitePersonas = test [
     "lista con personas repetidas" ~: (esPermutacion (personas [rel1, rel3]) [p1,p2,p3]) ~?= True
     ]
 
+testSuitePersonaConMasAmigos = test [
+    "una persona con mas amigos" ~: (personaConMasAmigos [rel1, rel2, rel3]) ~?= p1,
+    "misma cantidad de amigos" ~: ((personaConMasAmigos listaValida1) == p1 || personaConMasAmigos listaValida1 == p2) ~?= True
+    ]
 --- funciones aux
 extraerElemento :: String -> [String] -> [String]
 extraerElemento e [] = []
