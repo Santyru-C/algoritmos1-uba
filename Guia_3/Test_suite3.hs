@@ -12,7 +12,8 @@ tests = TestList [
     TestLabel "algunoEs0g" testSuiteAlgunoEs0,
     TestLabel "ambosSon0p" testSuiteAmbosSon0,
     TestLabel "mismoIntervalo" testSuiteMismoIntervalo,
-    TestLabel "sumaDistintos" testSuiteSumaDistintos
+    TestLabel "sumaDistintos" testSuiteSumaDistintos,
+    TestLabel "esMultiploDe" testSuiteEsMultiploDe
     ]
 
 testSuiteAbsoluto = test [
@@ -59,4 +60,9 @@ testSuiteSumaDistintos = test [
     "todos iguales" ~: (sumaDistintos 1 1 1) ~?= 1,
     "todos distintos" ~: (sumaDistintos 1 2 3) ~?= 6,
     "alguno igual" ~: (sumaDistintos 1 1 3) ~?= 4
+    ]
+
+testSuiteEsMultiploDe = test [
+    "a y b son multiplos" ~: (esMultiploDe 4 2) ~?= True,
+    "a y b no son multiplos" ~: (esMultiploDe 4 3) ~?= False
     ]
