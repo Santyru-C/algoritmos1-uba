@@ -13,6 +13,7 @@ rel1 = (p1, p2)
 rel1i = (p2, p1)
 rel2 = (p3, p4)
 rel2i = (p4, p3)
+rel3 = (p1, p3)
 
 listaValida1 = [rel1]
 listaValida2 = [rel1, rel2]
@@ -29,7 +30,8 @@ tests = TestList [
     TestLabel "amigosDe" testSuiteAmigosDe,
     TestLabel "seEncuentraEnRelacion" testSuiteSeEncuentraEnRelacion,
     TestLabel "aplanarListaDeRelaciones" testSuiteAplanarListaDeRelaciones,
-    TestLabel "sacarRepetidos" testSuiteSacarRepetidos
+    TestLabel "sacarRepetidos" testSuiteSacarRepetidos,
+    TestLabel "personas" testSuitePersonas
     ]
 
 testSuiteTieneRepetidos = test [
@@ -68,4 +70,10 @@ testSuiteSacarRepetidos = test [
     "lista vacia" ~: (sacarRepetidos []) ~?= [],
     "lista con repetidos" ~: (sacarRepetidos [p1, p2, p1, p2]) ~?= [p1, p2],
     "lista sin repetidos" ~: (sacarRepetidos listaDePersonas1) ~?= listaDePersonas1
+    ]
+
+testSuitePersonas = test [
+    "lista vacia" ~: (personas []) ~?= [],
+    "lista sin repetir personas" ~: (personas listaValida2) ~?= listaDePersonas1,
+    "lista con personas repetidas" ~: (personas [rel1, rel3]) ~?= [p1, p2, p3]
     ]
