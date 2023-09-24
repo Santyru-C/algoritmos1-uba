@@ -49,3 +49,14 @@ personas [] = []
 personas relaciones = sacarRepetidos (aplanarListaDeRelaciones relaciones)
 
 ---4
+repeticionesDe :: String -> [String] -> Integer
+repeticionesDe e [] = 0
+repeticionesDe e (x:xs)
+    | e == x = 1 + repeticionesDe e xs
+    | otherwise = repeticionesDe e xs
+
+tuplaDeRepetidos :: String -> [String] -> (String, Integer)
+tuplaDeRepetidos per xs = (per, repeticionesDe per xs)
+
+personaConMasAmigos :: [Relacion] -> String
+personaConMasAmigos [] = []
