@@ -75,5 +75,22 @@ testSuiteSacarRepetidos = test [
 testSuitePersonas = test [
     "lista vacia" ~: (personas []) ~?= [],
     "lista sin repetir personas" ~: (personas listaValida2) ~?= listaDePersonas1,
-    "lista con personas repetidas" ~: (personas [rel1, rel3]) ~?= [p1, p2, p3]
+    "lista con personas repetidas" ~: (esPermutacion (personas [rel1, rel3]) [p1,p2,p3]) ~?= True
     ]
+
+--- funciones aux
+extraerElemento :: String -> [String] -> [String]
+extraerElemento e [] = []
+extraerElemento e (x:xs)
+    | e == x = extraerElemento e xs
+    | otherwise = [x] ++ extraerElemento e xs
+
+esPermutacion :: [String] -> [String] -> Bool
+esPermutacion [] [] = True
+esPermutacion xs ys
+    | length xs == length ys = esPermutacion trimmedxs trimmedys
+    | otherwise = False
+    where
+        a = head xs
+        trimmedxs = extraerElemento a xs
+        trimmedys = extraerElemento a ys
