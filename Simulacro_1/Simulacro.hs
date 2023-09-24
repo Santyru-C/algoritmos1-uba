@@ -16,6 +16,19 @@ relacionesValidas (x:xs)
     | tieneRepetidos x xs = False
     | otherwise = relacionesValidas xs
 
+---2
+seEncuentraEnRelacion :: String -> (String, String) -> Bool
+seEncuentraEnRelacion persona (a,b)
+    | persona == a || persona == b = True
+    | otherwise = False
+
+extraerAmigoDeTupla :: String -> (String, String) -> String
+extraerAmigoDeTupla persona (a, b)
+    | persona == a = b
+    | otherwise = a
 
 amigosDe :: String -> [Relacion] -> [String]
 amigosDe persona [] = []
+amigosDe persona (rel:relaciones)
+    | seEncuentraEnRelacion persona rel = [extraerAmigoDeTupla persona rel] ++ amigosDe persona relaciones
+    | otherwise = amigosDe persona relaciones
