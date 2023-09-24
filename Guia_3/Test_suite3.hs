@@ -13,7 +13,9 @@ tests = TestList [
     TestLabel "ambosSon0p" testSuiteAmbosSon0,
     TestLabel "mismoIntervalo" testSuiteMismoIntervalo,
     TestLabel "sumaDistintos" testSuiteSumaDistintos,
-    TestLabel "esMultiploDe" testSuiteEsMultiploDe
+    TestLabel "esMultiploDe" testSuiteEsMultiploDe,
+    TestLabel "digitoUnidades" testDigitoUnidades,
+    TestLabel "digitoDecenas" testDigitoDecenas
     ]
 
 testSuiteAbsoluto = test [
@@ -65,4 +67,15 @@ testSuiteSumaDistintos = test [
 testSuiteEsMultiploDe = test [
     "a y b son multiplos" ~: (esMultiploDe 4 2) ~?= True,
     "a y b no son multiplos" ~: (esMultiploDe 4 3) ~?= False
+    ]
+
+testDigitoUnidades = test [
+    "n tiene una cifra" ~: (digitoUnidades 1) ~?= 1,
+    "n tiene más de una cifra" ~: (digitoUnidades 12) ~?= 2
+    ]
+
+testDigitoDecenas = test [
+    "n tiene una cifra" ~: (digitoDecenas 1) ~?= 0,
+    "n tiene dos cifras" ~: (digitoDecenas 12) ~?= 1,
+    "n tiene mas de dos cifras" ~: (digitoDecenas 123) ~?= 2
     ]
