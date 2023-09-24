@@ -19,6 +19,8 @@ listaValida2 = [rel1, rel2]
 listaInvalida1 = [rel1, rel1]
 listaInvalida2 = [rel2, rel2i]
 
+listaDePersonas1 = [p1, p2, p3, p4]
+
 run = runTestTT tests
 
 tests = TestList [
@@ -26,7 +28,8 @@ tests = TestList [
     TestLabel "tieneRepetidos" testSuiteTieneRepetidos,
     TestLabel "amigosDe" testSuiteAmigosDe,
     TestLabel "seEncuentraEnRelacion" testSuiteSeEncuentraEnRelacion,
-    TestLabel "aplanarListaDeRelaciones" testSuiteAplanarListaDeRelaciones
+    TestLabel "aplanarListaDeRelaciones" testSuiteAplanarListaDeRelaciones,
+    TestLabel "sacarRepetidos" testSuiteSacarRepetidos
     ]
 
 testSuiteTieneRepetidos = test [
@@ -59,4 +62,10 @@ testSuiteAplanarListaDeRelaciones = test [
     "lista vacia" ~: (aplanarListaDeRelaciones []) ~?= [],
     "lista con una relacion" ~: (aplanarListaDeRelaciones listaValida1) ~?= [p1, p2],
     "lista con varias relaciones" ~: (aplanarListaDeRelaciones listaValida2) ~?= [p1, p2, p3, p4]
+    ]
+
+testSuiteSacarRepetidos = test [
+    "lista vacia" ~: (sacarRepetidos []) ~?= [],
+    "lista con repetidos" ~: (sacarRepetidos [p1, p2, p1, p2]) ~?= [p1, p2],
+    "lista sin repetidos" ~: (sacarRepetidos listaDePersonas1) ~?= listaDePersonas1
     ]
