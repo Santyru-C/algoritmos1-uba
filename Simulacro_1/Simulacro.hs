@@ -37,3 +37,9 @@ amigosDe persona (rel:relaciones)
 aplanarListaDeRelaciones :: [Relacion] -> [String]
 aplanarListaDeRelaciones [] = []
 aplanarListaDeRelaciones ((a,b):xs) = [a] ++ [b] ++ aplanarListaDeRelaciones xs
+
+sacarRepetidos :: [String] -> [String]
+sacarRepetidos [] = []
+sacarRepetidos (x:xs)
+    | elem x xs = sacarRepetidos xs
+    | otherwise = [x] ++ sacarRepetidos xs
