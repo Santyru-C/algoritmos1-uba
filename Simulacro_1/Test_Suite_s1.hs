@@ -32,7 +32,8 @@ tests = TestList [
     TestLabel "aplanarListaDeRelaciones" testSuiteAplanarListaDeRelaciones,
     TestLabel "sacarRepetidos" testSuiteSacarRepetidos,
     TestLabel "personas" testSuitePersonas,
-    TestLabel "personaConMasAmigos" testSuitePersonaConMasAmigos
+    TestLabel "personaConMasAmigos" testSuitePersonaConMasAmigos,
+    TestLabel "repeticionesDe" testSuiteRepeticionesDe
     ]
 
 testSuiteTieneRepetidos = test [
@@ -82,6 +83,19 @@ testSuitePersonas = test [
 testSuitePersonaConMasAmigos = test [
     "una persona con mas amigos" ~: (personaConMasAmigos [rel1, rel2, rel3]) ~?= p1,
     "misma cantidad de amigos" ~: ((personaConMasAmigos listaValida1) == p1 || personaConMasAmigos listaValida1 == p2) ~?= True
+    ]
+
+testSuiteRepeticionesDe = test [
+    "lista vacia" ~: (repeticionesDe p1 []) ~?= 0,
+    "lista con repeticiones" ~: (repeticionesDe p1 [p1,p1,p1,p2,p1]) ~?= 4,
+    "lista sin repeticiones" ~: (repeticionesDe p1 [p1,p2,p3,p4]) ~?= 1,
+    "lista no contiene al elemento" ~: (repeticionesDe p1 [p2, p3, p4]) ~?= 0
+    ]
+
+testSuiteTuplaDeRepetidos = test [
+    "lista vacia" ~: (tuplaDeRepetidos p1 []) ~?= (p1, 0),
+    "sin repetidos" ~: (tuplaDeRepetidos p1 [p2, p3, p4]) ~?= (p1, 0),
+    "con repetidos" ~: (tuplasDeRepetidos p1 [p1, p1, p2]) ~?= (p1, 2)
     ]
 --- funciones aux
 extraerElemento :: String -> [String] -> [String]
