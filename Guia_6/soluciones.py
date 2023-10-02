@@ -28,4 +28,9 @@ def perimetro() -> float:
 def imprimir_saludo(nombre: str) -> str:
     print("Hola " + nombre)
 
-print(perimetro())
+#b
+def raiz_cuadrada_de(n: float) -> float:
+    sroot: float = (n ** (1/2))
+    return sroot
+
+print(raiz_cuadrada_de(3))
