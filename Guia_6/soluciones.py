@@ -46,6 +46,13 @@ def farenheit_a_celcius(temp_far: float) -> float:
     
 #d
 def imprimir_dos_veces(estribillo: str) -> str:
-    return estribillo*2
+    """Dado un string, devuelve ese mismo string duplicado"""
+    print(estribillo*2)
 
-print(imprimir_dos_veces("juan"))
+#e
+def es_multiplo_de(n: int, m: int) -> bool:
+    """Dados dos valores enteros, m != 0, determina si n es multiplo de m"""
+    res: bool = (n % m) == 0
+    return res
+
+print()
