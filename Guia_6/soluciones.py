@@ -73,7 +73,7 @@ def cantidad_de_pizzas(comensales: int, min_cant_porciones: int) -> int:
 
     return res
 
-##3
+##3 Estos ejercicios se deben realizar evitando el uso de declaraciones condicionales.
 #a
 def alguno_es_0(n1: float, n2: float) -> bool:
     """Dados dos números racionales, se devolverá True si alguno de los dos es igual a 0."""
@@ -86,4 +86,21 @@ def ambos_son_0(n1: float, n2: float) -> bool:
     res: bool = (n1 == 0) and (n2 == 0)
     return res
 
-print(ambos_son_0(1,0))
+#c
+def es_nombre_largo(nombre: str) -> bool:
+    """Dado un string, devuelve True si su largo "l" es 3<=l=<8"""
+    largo: int = len(nombre)
+    res: bool = (3<= largo) and (largo <= 8)
+    
+    return res
+
+#d
+def es_bisiesto(año: int) -> bool:
+    mult_400: bool = año % 400 == 0
+    mult_4: bool = año % 4 == 0
+    mult_100: bool = año % 100 == 0
+    res: bool = mult_400 or (mult_4 and (not mult_100))
+
+    return res
+
+print(es_bisiesto(1932))
