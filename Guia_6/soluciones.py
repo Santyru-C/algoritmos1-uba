@@ -55,4 +55,4 @@ def es_multiplo_de(n: int, m: int) -> bool:
     res: bool = (n % m) == 0
     return res
 
-print()
+print(es_multiplo_de(4,2))
