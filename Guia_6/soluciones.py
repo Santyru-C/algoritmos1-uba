@@ -74,9 +74,16 @@ def cantidad_de_pizzas(comensales: int, min_cant_porciones: int) -> int:
     return res
 
 ##3
+#a
 def alguno_es_0(n1: float, n2: float) -> bool:
-    """Dados dos numeros racionales, se devolverá True si alguno de los dos es igual a 0."""
+    """Dados dos números racionales, se devolverá True si alguno de los dos es igual a 0."""
     res: bool = (n1 == 0) or (n2 == 0)
     return res
 
-print(alguno_es_0(1,0))
+#b
+def ambos_son_0(n1: float, n2: float) -> bool:
+    """Dados dos números racionales, se devolverá True si ambos son 0."""
+    res: bool = (n1 == 0) and (n2 == 0)
+    return res
+
+print(ambos_son_0(1,0))
