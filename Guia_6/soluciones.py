@@ -55,4 +55,22 @@ def es_multiplo_de(n: int, m: int) -> bool:
     res: bool = (n % m) == 0
     return res
 
-print(es_multiplo_de(4,2))
+#f
+def es_par(n:int) -> bool:
+    """Dado un número entero, determina si ese mismo número es par."""
+    res: bool = es_multiplo_de(n, 2)
+    return res
+
+#g
+def cantidad_de_pizzas(comensales: int, min_cant_porciones: int) -> int:
+    """Dado un número de comensales y una cantidad mínima de porciones por cada uno.
+    Devuelve la cantidad necesaria de pizzas de 8 porciones teniendo en cuenta que se
+    prefiere que sobren porciones."""
+
+    total_porciones: int = comensales * min_cant_porciones
+    cantidad_de_pizzas: float = total_porciones / 8
+    res: int = math.ceil(cantidad_de_pizzas)
+
+    return res
+
+print(cantidad_de_pizzas(4,5))
