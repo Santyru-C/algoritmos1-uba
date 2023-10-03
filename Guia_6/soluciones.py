@@ -30,7 +30,22 @@ def imprimir_saludo(nombre: str) -> str:
 
 #b
 def raiz_cuadrada_de(n: float) -> float:
+    """requires a floating point number and returns the square root of it"""
     sroot: float = (n ** (1/2))
     return sroot
 
-print(raiz_cuadrada_de(3))
+#c
+def farenheit_a_celcius(temp_far: float) -> float:
+    """
+    req: temperatura en farenheit (R)
+    return: temperatura en celcius (R)
+    """
+
+    temp_cel: float = ((temp_far - 32) * 5) / 9
+    return round(temp_cel, 4)
+    
+#d
+def imprimir_dos_veces(estribillo: str) -> str:
+    return estribillo*2
+
+print(imprimir_dos_veces("juan"))
