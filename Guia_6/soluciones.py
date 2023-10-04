@@ -143,8 +143,24 @@ def devolver_el_doble_si_es_multiplo3_el_triple_si_es_multiplo_9(n: float) -> fl
 
 #d
 def lindo_nombre(nombre: str) -> str:
+    """Dado un string. Devuelve "¡Tu nombre tiene muchas letras!" si la cantidad
+    de caracteres de este es igual o mayor a 5, en caso contrario devuelve "Tu
+    nombre tiene menos de 5 caracteres"."""
     if (len(nombre) >= 5):
-        return "¡Tu nombre tiene muchas letras!"
+        return "¡Tu nombre tiene muchas letras!" #n
     
-    return "Tu nombre tiene menos de 5 caracteres."
-print(lindo_nombre("Sant"))
+    return "Tu nombre tiene menos de 5 caracteres." #m
+
+#e
+def el_rango(n: float) -> float: #chau a los docstring autoexplicativos
+    if (n < 5):
+        print("Menor a 5")
+    elif (n > 10 and n < 20):
+        print("Entre 10 y 20")
+    elif (n > 20):
+        print("Mayor a 20")
+
+el_rango(1)
+el_rango(7)
+el_rango(11)
+el_rango(21)
