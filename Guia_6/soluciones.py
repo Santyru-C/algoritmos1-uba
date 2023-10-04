@@ -140,4 +140,11 @@ def devolver_el_doble_si_es_multiplo3_el_triple_si_es_multiplo_9(n: float) -> fl
         return n * 2
     else:
         return n
-print()
+
+#d
+def lindo_nombre(nombre: str) -> str:
+    if (len(nombre) >= 5):
+        return "¡Tu nombre tiene muchas letras!"
+    
+    return "Tu nombre tiene menos de 5 caracteres."
+print(lindo_nombre("Sant"))
