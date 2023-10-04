@@ -207,4 +207,12 @@ def even_from_10_to_40() -> None:
         print(i)
         i += 2
 
-even_from_10_to_40()
+#c
+def eco10() -> None:
+    i: int = 0
+    while i < 10:
+        print("echo")
+        i += 1
+
+eco10()
+
