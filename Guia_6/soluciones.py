@@ -88,7 +88,7 @@ def ambos_son_0(n1: float, n2: float) -> bool:
 
 #c
 def es_nombre_largo(nombre: str) -> bool:
-    """Dado un string, devuelve True si su largo "l" es 3<=l=<8"""
+    """Dado un string, devuelve True si su largo "l" es 3<=l=<8."""
     largo: int = len(nombre)
     res: bool = (3<= largo) and (largo <= 8)
     
@@ -96,6 +96,7 @@ def es_nombre_largo(nombre: str) -> bool:
 
 #d
 def es_bisiesto(año: int) -> bool:
+    """Dado un año, devuelve True si este es bisiesto."""
     mult_400: bool = año % 400 == 0
     mult_4: bool = año % 4 == 0
     mult_100: bool = año % 100 == 0
@@ -103,4 +104,15 @@ def es_bisiesto(año: int) -> bool:
 
     return res
 
-print(es_bisiesto(1932))
+##4
+##5
+#a
+def devolver_el_doble_si_es_par(n: float) -> float:
+    """Dado un número "n" cualquiera. Devuelve el doble si este es par, en el caso
+    contrario devuelve el mismo número."""
+    if (n % 2 == 0):
+        return n * 2
+    else:
+        return n
+
+print(devolver_el_doble_si_es_par_(3))    
