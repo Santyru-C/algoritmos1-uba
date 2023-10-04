@@ -160,7 +160,39 @@ def el_rango(n: float) -> float: #chau a los docstring autoexplicativos
     elif (n > 20):
         print("Mayor a 20")
 
-el_rango(1)
-el_rango(7)
-el_rango(11)
-el_rango(21)
+#f
+def consultar_vacaciones(sexo: str, edad: int) -> str:
+    vacaciones: str = "Andá de vacaciones"
+    trabajar: str = "Te toca trabajar"
+    menor_de_edad: bool = edad < 18
+
+    if (sexo == "M"):
+        if (menor_de_edad or edad >= 65):
+            print(vacaciones)
+        else:
+            print(trabajar)
+    
+    if (sexo == "F"):
+        if (menor_de_edad or edad >= 60):
+            print(vacaciones)
+        else:
+            print(trabajar)
+
+def consultar_vacaciones1(sexo: str, edad: int) -> str: #creo que lo podemos hacer mas simple
+    vacaciones: str = "Andá de vacaciones"
+    trabajar: str = "Te toca trabajar"
+    menor_de_edad: bool = edad < 18
+    m_edad_laboral: bool = (sexo == "M") and (edad < 65)
+    f_edad_laboral: bool = (sexo == "F") and (edad < 60)
+
+    if menor_de_edad:
+        print(vacaciones)
+    elif (m_edad_laboral or f_edad_laboral):
+        print(trabajar)
+    else:
+        print(vacaciones)
+
+consultar_vacaciones("M",1)
+consultar_vacaciones("F",1)
+consultar_vacaciones("M", 18)
+consultar_vacaciones("F",18)
