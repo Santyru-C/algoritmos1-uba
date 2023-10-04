@@ -200,4 +200,11 @@ def count_to_ten() -> None:
         i += 1
         print(i)
 
-count_to_ten()
+#b
+def even_from_10_to_40() -> None:
+    i: int = 10
+    while (i <= 40):
+        print(i)
+        i += 2
+
+even_from_10_to_40()
