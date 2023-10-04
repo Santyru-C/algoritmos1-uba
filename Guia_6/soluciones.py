@@ -217,13 +217,22 @@ def eco10() -> None:
 #d
 def cuenta_regresiva_para_despegue(inicio: int) -> None:
     i = inicio
-    
+
     while i >= 1:
         print(i)
         i -= 1
 
     print("Despegue")
 
-cuenta_regresiva_para_despegue(20)
+#e
+def monitor_de_viaje_en_el_tiempo(inicio: int, llegada: int) -> None:
+    año_actual: int = inicio
+    salto: int = 1
+
+    while año_actual > llegada:
+        año_actual -= salto
+        print("Viajo un año al pasado, estamos en el año: " + str(año_actual))
+
+monitor_de_viaje_en_el_tiempo(2020,2010)
 
 
