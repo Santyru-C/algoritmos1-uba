@@ -192,7 +192,12 @@ def consultar_vacaciones1(sexo: str, edad: int) -> str: #creo que lo podemos hac
     else:
         print(vacaciones)
 
-consultar_vacaciones("M",1)
-consultar_vacaciones("F",1)
-consultar_vacaciones("M", 18)
-consultar_vacaciones("F",18)
+##6
+#a
+def count_to_ten() -> None:
+    i: int = 0
+    while i < 10:
+        i += 1
+        print(i)
+
+count_to_ten()
