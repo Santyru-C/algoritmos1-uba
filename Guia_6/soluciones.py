@@ -214,5 +214,16 @@ def eco10() -> None:
         print("echo")
         i += 1
 
-eco10()
+#d
+def cuenta_regresiva_para_despegue(inicio: int) -> None:
+    i = inicio
+    
+    while i >= 1:
+        print(i)
+        i -= 1
+
+    print("Despegue")
+
+cuenta_regresiva_para_despegue(20)
+
 
