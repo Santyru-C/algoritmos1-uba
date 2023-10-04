@@ -115,4 +115,19 @@ def devolver_el_doble_si_es_par(n: float) -> float:
     else:
         return n
 
-print(devolver_el_doble_si_es_par_(3))    
+#b
+def devolver_el_valor_si_es_par_sino_el_que_sigue1(n: float) -> float: #dale chabon, ¿No quieren poner un nombre más largo?
+    """Dado un número, devuelve este mismo si es par. En caso contrario devuelve
+    el siguiente. (Utiliza IfElse)"""
+    if es_par(n):
+        return n
+    else:
+        return n + 1
+
+def devolver_el_valor_si_es_par_sino_el_que_sigue2(n: float) -> float:
+    if es_par(n):
+        return n
+    if not es_par(n):
+        return n + 1
+
+print(devolver_el_valor_si_es_par_sino_el_que_sigue1(3), devolver_el_valor_si_es_par_sino_el_que_sigue2(3))    
