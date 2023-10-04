@@ -130,4 +130,14 @@ def devolver_el_valor_si_es_par_sino_el_que_sigue2(n: float) -> float:
     if not es_par(n):
         return n + 1
 
-print(devolver_el_valor_si_es_par_sino_el_que_sigue1(3), devolver_el_valor_si_es_par_sino_el_que_sigue2(3))    
+#c
+def devolver_el_doble_si_es_multiplo3_el_triple_si_es_multiplo_9(n: float) -> float: # really?..
+    """Dado un número. Devuelve el doble si este es múltiplo de 3 o devuelve el triple
+    si es múltiplo de 9."""
+    if (n % 9 == 0):
+        return n * 3
+    elif (n % 3 == 0):
+        return n * 2
+    else:
+        return n
+print()
