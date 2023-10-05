@@ -244,6 +244,46 @@ def viaje_rapido_al_384AC(inicio: int, salto: int = 20) -> None:
         saltos_realizados += 1
         print("Viajo 20 años al pasado, estamos en el año: " + str(año_actual))
 
-viaje_rapido_al_384AC(2023)
+##7
+#a
+def count_to_ten_for() -> None:
+    for i in range(1, 11):
+        print(i)
 
+#b
+def even_from_10_to_40_for() -> None:
+    for i in range(10, 42, 2):
+        print(i)
 
+#c
+def eco10_for() -> None:
+    for i in range(1, 11):
+        print("eco" + str(i))
+
+#d
+def cuenta_regresiva_para_el_despegue_for(inicio: int) -> None:
+    for i in range(inicio, 0, -1):
+        print(i)
+    else:
+        print("Despegue")
+
+#e
+def monitor_de_viaje_en_el_tiempo_for(año_partida: int, año_llegada: int) -> None:
+    for i in range(año_partida - 1, año_llegada -1, -1):
+        print("Viajó un año al pasado, estamos en el año: %d" % (i))
+
+#f
+def dar_formato_al_año(año: int) -> str:
+    con_formato: str = "%dAC" % abs(año) if año < 0 else "%dDC" % año
+
+    return con_formato
+
+def viaje_rapido_al_384AC_for(inicio: int, salto: int = 20) -> None:
+    año_actual: int = inicio
+    cociente_del_viaje: int = (año_actual + 384) // 20
+    
+    for i in range(0, cociente_del_viaje):
+        año_actual -= salto
+        print("Viajo 20 años al pasado, estamos en el año: " + dar_formato_al_año(año_actual))
+
+viaje_rapido_al_384AC_for(2023)
