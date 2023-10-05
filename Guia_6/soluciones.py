@@ -233,6 +233,17 @@ def monitor_de_viaje_en_el_tiempo(inicio: int, llegada: int) -> None:
         año_actual -= salto
         print("Viajo un año al pasado, estamos en el año: " + str(año_actual))
 
-monitor_de_viaje_en_el_tiempo(2020,2010)
+#f
+def viaje_rapido_al_384AC(inicio: int, salto: int = 20) -> None:
+    año_actual: int = inicio
+    cociente_del_viaje: int = (año_actual + 384) // 20
+    saltos_realizados: int = 0
+    
+    while saltos_realizados < cociente_del_viaje:
+        año_actual -= salto
+        saltos_realizados += 1
+        print("Viajo 20 años al pasado, estamos en el año: " + str(año_actual))
+
+viaje_rapido_al_384AC(2023)
 
 
