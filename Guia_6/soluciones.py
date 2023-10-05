@@ -357,3 +357,31 @@ x = res and x
 //value x == res@c and x@b
 """
 
+##9
+def rt(x: int, g:int) -> int:
+    #estado a 
+    g = g + 1
+    #estado b
+    #vale g == g@a + 1
+    return x + g
+
+g: int = 0
+
+def ro(x: int) -> int:
+    #estado a
+    global g
+    #estado b
+    #vale g == 0 (global)
+    g = g + 1
+    #estado c
+    #vale g == g@b + 1
+    return x + g
+
+#a ¿Cuál es el resultado de evaluar tres veces seguidas ro(1)? 4
+#b ¿Cuál es el resultado de evaluar tres veces rt(1, 0)? 2
+#
+rt(1, 0)
+rt(1, 0)
+print(rt(1, 0))
+
+
