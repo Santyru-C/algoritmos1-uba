@@ -286,4 +286,74 @@ def viaje_rapido_al_384AC_for(inicio: int, salto: int = 20) -> None:
         año_actual -= salto
         print("Viajo 20 años al pasado, estamos en el año: " + dar_formato_al_año(año_actual))
 
-viaje_rapido_al_384AC_for(2023)
+##8
+#a
+"""
+x = 5
+//estado a x == 5
+y = 7
+//estado b y == 7
+x = x + y
+//estado c 
+//vale x == x@a + y@b
+"""
+
+#b
+"""
+nada
+//estado a
+
+x = 5
+//estado b x == 5
+
+y = 7
+//estado c y == 7
+
+z = x + y
+//estado d
+//vale z == x@c + y@c #vale usar los estados asi? osea x no cambió, puedo usar el de el estado anterior o me tengo que referir a cuando es asignada?
+
+y = z * 2
+//estado e
+//vale y == z@d * 2
+"""
+
+#c
+"""
+sin modificar
+//estado a
+
+x = 5
+//estado b x == 5
+
+y = 7
+//estado c y == 1
+
+x = "hora"
+//estado d x == "hora"
+
+y = x * 2
+//estado e
+//vale y == x@d * 2
+"""
+
+#d
+"""
+sin modificar
+//estado a
+
+x = True
+y = False
+//estado b
+//vale y == False #se puede poner los dos directamente en uno?
+//valu x == True
+
+res = x and y
+//estado c
+//vale res == x@b and y@b
+
+x = res and x
+//estado d
+//value x == res@c and x@b
+"""
+
