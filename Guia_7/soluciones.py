@@ -67,8 +67,17 @@ def alguna_con_mas_de_7_caracteres(s: [str]) -> bool:
         if (len(i) > 7): return True
     else:
         return False
+    
+##6
+def texto_palindromo(texto: str) -> bool:
+    for i in range(0, round(len(texto) / 2)): #itera HASTA (no inclusive) el ultimo valor
+        print(texto[i], texto[len(texto) - 1 - i])
+
+        if (texto[i] != texto[len(texto)- 1 - i]): return False
+
+    else:
+        return True
+##devuelve none cuando quiero imprimir una funcion que no devuelve nada
 print(
-    alguna_con_mas_de_7_caracteres(LISTA_PALABRAS1),
-    alguna_con_mas_de_7_caracteres(LISTA_PALABRAS2),
-    alguna_con_mas_de_7_caracteres([])
+    texto_palindromo("abdefggfedcba")
 )
