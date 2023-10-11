@@ -2,6 +2,9 @@
 LISTA_NUM1 = [1,2,3,4,5]
 LISTA_NUM2 = [2,4,6,8,10]
 LISTA_DESORDENADA = [1,4,2,3,5,10,7]
+LISTA_PALABRAS1 = ["juan", "carlos", "santiago", "estela", "marianela"]
+LISTA_PALABRAS2 = ["a", "b", "c","d","e"]
+
 
 ### PRIMERA PARTE
 ##1
@@ -58,7 +61,14 @@ def ordenados(s: [int]) -> bool:
     
     return True
 
+##5
+def alguna_con_mas_de_7_caracteres(s: [str]) -> bool:
+    for i in s:
+        if (len(i) > 7): return True
+    else:
+        return False
 print(
-    ordenados(LISTA_NUM1),
-    ordenados(LISTA_NUM2)
+    alguna_con_mas_de_7_caracteres(LISTA_PALABRAS1),
+    alguna_con_mas_de_7_caracteres(LISTA_PALABRAS2),
+    alguna_con_mas_de_7_caracteres([])
 )
