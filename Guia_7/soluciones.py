@@ -70,14 +70,47 @@ def alguna_con_mas_de_7_caracteres(s: [str]) -> bool:
     
 ##6
 def texto_palindromo(texto: str) -> bool:
-    for i in range(0, round(len(texto) / 2)): #itera HASTA (no inclusive) el ultimo valor
-        print(texto[i], texto[len(texto) - 1 - i])
-
-        if (texto[i] != texto[len(texto)- 1 - i]): return False
+    char_num = len(texto)
+    for i in range(0, round(char_num / 2)): #itera HASTA (no inclusive) el ultimo valor
+        if (texto[i] != texto[char_num - 1 - i]): return False
 
     else:
         return True
+    
+##7
+def analizar_contraseña(contraseña: str) -> str:
+    tiene_mayus = False
+    tiene_minus = False
+    tiene_num = False
+    long_may_8 = False
+    long_men_5 = False
+
+    if len(contraseña) >= 8:
+        long_may_8 = True
+    elif len(contraseña) < 5:
+        long_men_5 = True
+    else:
+        pass
+
+    for caracter in contraseña: #obviamente podes checkear listas prearmadas con los caracteres, pero no pienso hacer lista con todas las letras
+        print(caracter)
+        if caracter.islower(): #o tambien   strin.ascii_letters, string.ascii_lowecase, etc.
+            tiene_minus = True
+        elif caracter.isupper():
+            tiene_mayus = True
+        elif isinstance(int(caracter), int):
+            tiene_num = True
+
+    if tiene_mayus and tiene_minus and tiene_num and long_may_8:
+        return "VERDE"
+    elif long_men_5:
+        return "ROJO"
+    else:
+        return "AMARILLO"
+    
 ##devuelve none cuando quiero imprimir una funcion que no devuelve nada
 print(
-    texto_palindromo("abdefggfedcba")
+    analizar_contraseña("Santiaguito12"),
+    analizar_contraseña("contraseñaturra"),
+    analizar_contraseña("juan")
 )
