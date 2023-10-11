@@ -1,6 +1,7 @@
 ### PARAMETROS
 LISTA_NUM1 = [1,2,3,4,5]
 LISTA_NUM2 = [2,4,6,8,10]
+LISTA_DESORDENADA = [1,4,2,3,5,10,7]
 
 ### PRIMERA PARTE
 ##1
@@ -15,7 +16,7 @@ def pertenece1(s: [int], e: int) -> bool:
 def pertenece2(s: [int], e: int) -> bool:
     return e in s
 
-def pertenece3(s: [int], e: int) -> bool: ## revisar
+def pertenece3(s: [int], e: int) -> bool: ## revisar #no tendria que ir porque no podemos modificar el valor de entrada
     print(s, e)
     if not s:
         print("aca")
@@ -49,8 +50,15 @@ def suma_total(s: [int]) -> int:
     
     return res
 
+##4
+def ordenados(s: [int]) -> bool:
+    for i in range(0 , len(s) - 1):
+        if (s[i] > s[i + 1]):
+            return False
+    
+    return True
+
 print(
-    suma_total(LISTA_NUM1),
-    suma_total(LISTA_NUM2),
-    suma_total([])
+    ordenados(LISTA_NUM1),
+    ordenados(LISTA_NUM2)
 )
