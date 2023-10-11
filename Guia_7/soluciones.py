@@ -1,3 +1,7 @@
+### PARAMETROS
+LISTA_NUM1 = [1,2,3,4,5]
+LISTA_NUM2 = [2,4,6,8,10]
+
 ### PRIMERA PARTE
 ##1
 def pertenece1(s: [int], e: int) -> bool:
@@ -35,8 +39,18 @@ def divide_a_todos(s: [int], e: int) -> bool:
             return False
     
     return True
+
+##3
+def suma_total(s: [int]) -> int:
+    res: int = 0
+
+    for i in s:
+        res += i
+    
+    return res
+
 print(
-    divide_a_todos([2,4,6,8], 2),
-    divide_a_todos([1,2,3,4], 2),
-    divide_a_todos([], 1)
+    suma_total(LISTA_NUM1),
+    suma_total(LISTA_NUM2),
+    suma_total([])
 )
