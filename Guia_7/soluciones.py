@@ -155,9 +155,11 @@ def indices_pares_a_0_inout(s: [float]) -> [float]:
 ##2
 def indices_pares_a_0_in(s: [float]) -> [float]: #aca no tenemos que mutar la lista de entrada
     lista_salida: float = [] #entonces creo una lista nueva
-    lista_salida1: float = s.copy() #tambien podemos hacer una shallow copy de la lista original
     
-    for i in range(0, len(s)):
+    #lista_salida1: float = s.copy() tambien podemos hacer una shallow copy de la lista original
+    # para luego iterar sobre esta sin riesgo a modificar la lista pasada como parámetro.
+
+    for i in range(0, len(s)): #pero esta se me ocurrio primero asi que bueno...
         if i % 2 == 0:
             lista_salida.append(0)
         else:
@@ -167,8 +169,17 @@ def indices_pares_a_0_in(s: [float]) -> [float]: #aca no tenemos que mutar la li
 
 test_list: [float] = [1,2,3,4,5,6,7,8]
 
+##3
+def cadena_sin_vocales(palabra: str) -> str:
+    nueva_cadena: str = ""
+    lista_vocales: [str] = ["a", "e", "i", "o", "u"]
 
-print(test_list)
+    for letra in palabra:
+        if letra not in lista_vocales:
+            nueva_cadena += letra #si usaramos unicamente + seria una modificacion temporal
+
+    return nueva_cadena
+
 print(
-    indices_pares_a_0_in(test_list)
+    cadena_sin_vocales("estela beatriz mansilla")
 )
