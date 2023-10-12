@@ -1,4 +1,5 @@
 ### PARAMETROS
+LISTA_VOCALES: [str] = ["a", "e", "i", "o", "u"]
 LISTA_NUM1 = [1,2,3,4,5]
 LISTA_NUM2 = [2,4,6,8,10]
 LISTA_DESORDENADA = [1,4,2,3,5,10,7]
@@ -127,14 +128,13 @@ test_movimientos2 = [("I", 200),("I", 200),("R", 1000)]
 
 #9
 def tres_vocales_distintas(palabra: str) -> bool:
-    vocales: [str] = ["a", "e", "i", "o", "u"]
     vocales_distintas: int = 0
     for i in range(0, len(palabra)):
         for j in range(i, len(palabra)):
             
             letra_1 = palabra[i]
             letra_2 = palabra[j]
-            ambas_vocales = (letra_1 in vocales) and (letra_2 in vocales)
+            ambas_vocales = (letra_1 in LISTA_VOCALES) and (letra_2 in LISTA_VOCALES)
 
             if ambas_vocales and (letra_1 != letra_2):
                 vocales_distintas += 1
@@ -172,14 +172,25 @@ test_list: [float] = [1,2,3,4,5,6,7,8]
 ##3
 def cadena_sin_vocales(palabra: str) -> str:
     nueva_cadena: str = ""
-    lista_vocales: [str] = ["a", "e", "i", "o", "u"]
 
     for letra in palabra:
-        if letra not in lista_vocales:
+        if letra not in LISTA_VOCALES:
             nueva_cadena += letra #si usaramos unicamente + seria una modificacion temporal
 
     return nueva_cadena
 
+##4
+def reemplaza_vocales(palabra: str) -> str: #el parametro aca es in por lo que no se lo modifica
+    res: str = ""
+    for letra in palabra:
+        print(LISTA_VOCALES)
+        if letra in LISTA_VOCALES:
+            res += "_"
+        else:
+            res += letra
+
+    return res
+
 print(
-    cadena_sin_vocales("estela beatriz mansilla")
+    reemplaza_vocales("estela")
 )
