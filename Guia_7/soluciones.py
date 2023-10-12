@@ -78,7 +78,7 @@ def texto_palindromo(texto: str) -> bool:
         return True
     
 ##7
-def analizar_contraseña(contraseña: str) -> str:
+def analizar_contraseña(contraseña: str) -> str: #no puedo hacer una funcion mas fea
     tiene_mayus = False
     tiene_minus = False
     tiene_num = False
@@ -107,10 +107,26 @@ def analizar_contraseña(contraseña: str) -> str:
         return "ROJO"
     else:
         return "AMARILLO"
+
+#8
+def historial_de_movimientos(movimientos:[(str, float)]) -> float:
+    saldo: float = 0
+    for transaccion in movimientos:
+        tipo_de_trans = transaccion[0]
+        monto = transaccion[1]
+
+        if tipo_de_trans == "I":
+            saldo += monto
+        else:
+            saldo -= monto
     
+    return saldo
+
+test_movimientos1 = [("I", 200),("I", 200),("I", 200),("I", 200),("I", 200),("R", 1000)] #should be 0
+test_movimientos2 = [("I", 200),("I", 200),("R", 1000)]
+
 ##devuelve none cuando quiero imprimir una funcion que no devuelve nada
 print(
-    analizar_contraseña("Santiaguito12"),
-    analizar_contraseña("contraseñaturra"),
-    analizar_contraseña("juan")
+    historial_de_movimientos(test_movimientos1),
+    historial_de_movimientos(test_movimientos2)
 )
