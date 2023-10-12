@@ -108,7 +108,7 @@ def analizar_contraseña(contraseña: str) -> str: #no puedo hacer una funcion m
     else:
         return "AMARILLO"
 
-#8
+##8
 def historial_de_movimientos(movimientos:[(str, float)]) -> float:
     saldo: float = 0
     for transaccion in movimientos:
@@ -144,6 +144,7 @@ def tres_vocales_distintas(palabra: str) -> bool:
 ##devuelve none cuando quiero imprimir una funcion que no devuelve nada
 
 ### SEGUNDA PARTE
+##1
 def indices_pares_a_0_inout(s: [float]) -> [float]:
     for i in range(0, len(s)):
         if i % 2 == 0:
@@ -151,9 +152,23 @@ def indices_pares_a_0_inout(s: [float]) -> [float]:
 
     return s
 
+##2
+def indices_pares_a_0_in(s: [float]) -> [float]: #aca no tenemos que mutar la lista de entrada
+    lista_salida: float = [] #entonces creo una lista nueva
+    lista_salida1: float = s.copy() #tambien podemos hacer una shallow copy de la lista original
+    
+    for i in range(0, len(s)):
+        if i % 2 == 0:
+            lista_salida.append(0)
+        else:
+            lista_salida.append(s[i])
+    
+    return lista_salida
+
 test_list: [float] = [1,2,3,4,5,6,7,8]
+
 
 print(test_list)
 print(
-    indices_pares_a_0_inout(test_list)
+    indices_pares_a_0_in(test_list)
 )
