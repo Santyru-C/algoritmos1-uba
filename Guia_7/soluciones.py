@@ -142,4 +142,18 @@ def tres_vocales_distintas(palabra: str) -> bool:
     return vocales_distintas >= 3
 
 ##devuelve none cuando quiero imprimir una funcion que no devuelve nada
-print(tres_vocales_distintas("juan"))
+
+### SEGUNDA PARTE
+def indices_pares_a_0_inout(s: [float]) -> [float]:
+    for i in range(0, len(s)):
+        if i % 2 == 0:
+            s[i] = 0
+
+    return s
+
+test_list: [float] = [1,2,3,4,5,6,7,8]
+
+print(test_list)
+print(
+    indices_pares_a_0_inout(test_list)
+)
