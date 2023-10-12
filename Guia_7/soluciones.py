@@ -191,6 +191,20 @@ def reemplaza_vocales(palabra: str) -> str: #el parametro aca es in por lo que n
 
     return res
 
+##4
+def da_vuelta_string(cadena: str) -> str: #parametro de entrada tipo in
+    cadena_invertida: str = ""
+    for i in range(len(cadena) - 1, -1, -1):
+        cadena_invertida += cadena[i]
+
+    return cadena_invertida
+
+def da_vuelta_string2(cadena: str) -> str: # tambien podemos usar reversed pero no lo dieron en clase
+    cadena_invertida: str = ""
+    for letra in reversed(cadena): #que lindo!
+        cadena_invertida += letra
+
+    return cadena_invertida
 print(
-    reemplaza_vocales("estela")
+    da_vuelta_string2("guillermo")
 )
