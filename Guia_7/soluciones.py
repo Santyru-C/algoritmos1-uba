@@ -125,8 +125,21 @@ def historial_de_movimientos(movimientos:[(str, float)]) -> float:
 test_movimientos1 = [("I", 200),("I", 200),("I", 200),("I", 200),("I", 200),("R", 1000)] #should be 0
 test_movimientos2 = [("I", 200),("I", 200),("R", 1000)]
 
+#9
+def tres_vocales_distintas(palabra: str) -> bool:
+    vocales: [str] = ["a", "e", "i", "o", "u"]
+    vocales_distintas: int = 0
+    for i in range(0, len(palabra)):
+        for j in range(i, len(palabra)):
+            
+            letra_1 = palabra[i]
+            letra_2 = palabra[j]
+            ambas_vocales = (letra_1 in vocales) and (letra_2 in vocales)
+
+            if ambas_vocales and (letra_1 != letra_2):
+                vocales_distintas += 1
+    
+    return vocales_distintas >= 3
+
 ##devuelve none cuando quiero imprimir una funcion que no devuelve nada
-print(
-    historial_de_movimientos(test_movimientos1),
-    historial_de_movimientos(test_movimientos2)
-)
+print(tres_vocales_distintas("juan"))
