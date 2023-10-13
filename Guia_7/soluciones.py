@@ -191,7 +191,7 @@ def reemplaza_vocales(palabra: str) -> str: #el parametro aca es in por lo que n
 
     return res
 
-##4
+##5
 def da_vuelta_string(cadena: str) -> str: #parametro de entrada tipo in
     cadena_invertida: str = ""
     for i in range(len(cadena) - 1, -1, -1):
@@ -205,6 +205,17 @@ def da_vuelta_string2(cadena: str) -> str: # tambien podemos usar reversed pero 
         cadena_invertida += letra
 
     return cadena_invertida
+
+##6
+def eliminar_repetidos(s: str) -> str: #parámetro de entrada tipo in
+    nueva_cadena: str = ""
+    for letra in s:
+        if letra not in nueva_cadena:
+            nueva_cadena += letra
+    
+    return nueva_cadena
+
 print(
-    da_vuelta_string2("guillermo")
+    eliminar_repetidos("estela")
 )
+
