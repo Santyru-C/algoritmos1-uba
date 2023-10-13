@@ -9,6 +9,7 @@ LISTA_PALABRAS2 = ["a", "b", "c","d","e"]
 
 ### PRIMERA PARTE
 ##1
+#1
 def pertenece1(s: [int], e: int) -> bool:
     for i in s:
         if i == e:
@@ -34,7 +35,7 @@ def pertenece3(s: [int], e: int) -> bool: ## revisar #no tendria que ir porque n
 
 def pertenece4(s, e) -> bool:
     return e in s
-##2
+#2
 def divide_a_todos(s: [int], e: int) -> bool:
     if not s:
         return False ## aunque depende de como lo interpretas el tema de la lista vacia
@@ -45,7 +46,7 @@ def divide_a_todos(s: [int], e: int) -> bool:
     
     return True
 
-##3
+#3
 def suma_total(s: [int]) -> int:
     res: int = 0
 
@@ -54,7 +55,7 @@ def suma_total(s: [int]) -> int:
     
     return res
 
-##4
+#4
 def ordenados(s: [int]) -> bool:
     for i in range(0 , len(s) - 1):
         if (s[i] > s[i + 1]):
@@ -62,14 +63,14 @@ def ordenados(s: [int]) -> bool:
     
     return True
 
-##5
+#5
 def alguna_con_mas_de_7_caracteres(s: [str]) -> bool:
     for i in s:
         if (len(i) > 7): return True
     else:
         return False
     
-##6
+#6
 def texto_palindromo(texto: str) -> bool:
     char_num = len(texto)
     for i in range(0, round(char_num / 2)): #itera HASTA (no inclusive) el ultimo valor
@@ -78,7 +79,7 @@ def texto_palindromo(texto: str) -> bool:
     else:
         return True
     
-##7
+#7
 def analizar_contraseña(contraseña: str) -> str: #no puedo hacer una funcion mas fea
     tiene_mayus = False
     tiene_minus = False
@@ -109,7 +110,7 @@ def analizar_contraseña(contraseña: str) -> str: #no puedo hacer una funcion m
     else:
         return "AMARILLO"
 
-##8
+#8
 def historial_de_movimientos(movimientos:[(str, float)]) -> float:
     saldo: float = 0
     for transaccion in movimientos:
@@ -144,7 +145,8 @@ def tres_vocales_distintas(palabra: str) -> bool:
 ##devuelve none cuando quiero imprimir una funcion que no devuelve nada
 
 ### SEGUNDA PARTE
-##1
+##2
+#1
 def indices_pares_a_0_inout(s: [float]) -> [float]:
     for i in range(0, len(s)):
         if i % 2 == 0:
@@ -152,7 +154,7 @@ def indices_pares_a_0_inout(s: [float]) -> [float]:
 
     return s
 
-##2
+#2
 def indices_pares_a_0_in(s: [float]) -> [float]: #aca no tenemos que mutar la lista de entrada
     lista_salida: float = [] #entonces creo una lista nueva
     
@@ -169,7 +171,7 @@ def indices_pares_a_0_in(s: [float]) -> [float]: #aca no tenemos que mutar la li
 
 test_list: [float] = [1,2,3,4,5,6,7,8]
 
-##3
+#3
 def cadena_sin_vocales(palabra: str) -> str:
     nueva_cadena: str = ""
 
@@ -179,7 +181,7 @@ def cadena_sin_vocales(palabra: str) -> str:
 
     return nueva_cadena
 
-##4
+#4
 def reemplaza_vocales(palabra: str) -> str: #el parametro aca es in por lo que no se lo modifica
     res: str = ""
     for letra in palabra:
@@ -191,7 +193,7 @@ def reemplaza_vocales(palabra: str) -> str: #el parametro aca es in por lo que n
 
     return res
 
-##5
+#5
 def da_vuelta_string(cadena: str) -> str: #parametro de entrada tipo in
     cadena_invertida: str = ""
     for i in range(len(cadena) - 1, -1, -1):
@@ -206,16 +208,31 @@ def da_vuelta_string2(cadena: str) -> str: # tambien podemos usar reversed pero 
 
     return cadena_invertida
 
-##6
+#6
 def eliminar_repetidos(s: str) -> str: #parámetro de entrada tipo in
     nueva_cadena: str = ""
     for letra in s:
         if letra not in nueva_cadena:
             nueva_cadena += letra
     
-    return nueva_cadena
+    return nueva_cadena #revisar el algoritmo que esta dado
+
+##3
+def aprobado(notas: [int]) -> int: #parámetro de entrada tipo in
+    suma_de_notas: int = 0 # el algoritmo que dan es medio raro, se puede tener promedio menor a 4 si todas las notas son mayores a 4?
+    promedio: float = None #mejor voy a preguntar, esta funcion cumple con esto pero quizá tendría que ser una menor que 4 y promedio menor a 4
+
+    for nota in notas:
+        if nota < 4:
+            return 3
+        else:
+            suma_de_notas += nota
+    
+    promedio = suma_de_notas / len(notas)
+    print(promedio)
+    return 1 if promedio >= 7 else 2
 
 print(
-    eliminar_repetidos("estela")
+    aprobado([7,7,3,7,7])
 )
 
