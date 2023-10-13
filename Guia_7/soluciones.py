@@ -232,7 +232,53 @@ def aprobado(notas: [int]) -> int: #parámetro de entrada tipo in
     print(promedio)
     return 1 if promedio >= 7 else 2
 
-print(
-    aprobado([7,7,3,7,7])
-)
+##4
+#1
+def armar_lista_de_nombres() -> [str]:
+    stop_flag: bool = False
+    lista_nombres: [str] = []
 
+    while not stop_flag:
+        x = input("Ingresa un nombre, termina ingresando 'listo': ")
+        if x == "listo":
+            stop_flag = True
+        else:
+            lista_nombres.append(x)
+
+    return lista_nombres
+
+#2
+def actualizar_saldo(operacion:(str, float), saldo: float) -> float:
+    nuevo_saldo: float = saldo
+    if operacion[0] == "C":
+        nuevo_saldo += operacion[1]
+    
+    if operacion[0] == "D":
+        nuevo_saldo -= operacion[1]
+
+    return nuevo_saldo
+
+def historial_de_saldo() -> [((str, float), float)]:
+    saldo: float = 0
+    transacciones: [(str, float)] = []
+    programa_finalizado: bool = False
+
+    while not programa_finalizado:
+        operación: str = input("Ingrese el tipo de operación: ")
+
+        if operación == "C" or operación == "D":
+            monto: str = input("Ingrese el monto: ")
+            transaccion: (str, float) = (operación, float(monto))
+            saldo = actualizar_saldo(transaccion, saldo) 
+            transacciones.append((transaccion, saldo)) #Como no deja claramente como devolver el valor del saldo
+                                                        # decido devolverlo en una tupla junto a la transacción recientemente realizada
+        elif operación == "X":
+            programa_finalizado = True
+            
+        else:
+            print("Operación inválida")
+
+    return transacciones
+
+a_imprimir = historial_de_saldo()
+print(a_imprimir)
