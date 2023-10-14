@@ -1,3 +1,5 @@
+import random
+
 ### PARAMETROS
 LISTA_VOCALES: [str] = ["a", "e", "i", "o", "u"]
 LISTA_NUM1 = [1,2,3,4,5]
@@ -274,11 +276,48 @@ def historial_de_saldo() -> [((str, float), float)]:
                                                         # decido devolverlo en una tupla junto a la transacción recientemente realizada
         elif operación == "X":
             programa_finalizado = True
-            
+
         else:
             print("Operación inválida")
 
     return transacciones
 
-a_imprimir = historial_de_saldo()
+#3
+
+def actualizar_puntuacion(carta: int, puntuacion: int) -> int:
+    if carta <= 7:
+        puntuacion += carta
+    else:
+        puntuacion += 0.5
+    
+    return puntuacion
+
+def siete_y_medio() -> [int]:
+    mazo: [int] = [1,2,3,4,5,6,7,10,11,12]
+    plantado: bool = False
+    puntuacion: float = 0
+    banca: float = random.randint(1, 14) + random.choice([0, 0.5])
+    mano_jugador: [int] = []
+
+    while not plantado and puntuacion < 7.5:
+        x: str = input("¿Desea tomar un carta? [S/N]: ")
+        if x == "S":
+            carta: int = random.choice(mazo)
+            mano_jugador.append(carta)
+            print(mano_jugador)
+            puntuacion = actualizar_puntuacion(carta, puntuacion)
+        
+        if x == "N":
+            plantado = True
+    
+    if puntuacion <= 7.5:
+        if banca > 7.5 or banca < puntuacion:
+            print("Ganaste")
+    
+    else:
+        print("Perdiste")
+
+    return mano_jugador, banca
+
+a_imprimir = siete_y_medio()
 print(a_imprimir)
