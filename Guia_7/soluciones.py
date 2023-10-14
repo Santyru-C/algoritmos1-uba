@@ -326,5 +326,20 @@ def pertenece_a_cada_uno(s: [[int]], n: int, res: [bool]) -> [bool]: #s y n son 
     
     return res
 
-a_imprimir = pertenece_a_cada_uno([[1,2],[1,2],[1,2,3],[1,2]], 3, [])
+#2
+def es_matriz(s: [[int]]) -> bool: #parámetro de entrada de tipo in
+    
+    if (len(s) == 0) or (len(s[0])) == 0:
+        return False
+    
+    for i in range(0, len(s) - 1):
+        l_actual: [int] = s[i]
+        l_siguiente: [int] = s[i + 1]
+        print(l_actual)
+        if (len(l_actual) != len(l_siguiente)):
+            return False
+
+    return True 
+
+a_imprimir = es_matriz([[2],[1]])
 print(a_imprimir)
