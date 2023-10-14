@@ -341,5 +341,12 @@ def es_matriz(s: [[int]]) -> bool: #parámetro de entrada de tipo in
 
     return True 
 
-a_imprimir = es_matriz([[2],[1]])
+#3
+def filas_ordenadas(m:[[int]], res:[bool]) -> [bool]:
+    for lista in m:
+        res.append(True) if ordenados(lista) else res.append(False)
+    
+    return res
+
+a_imprimir = filas_ordenadas([[3,2,3],[1,2,3],[3,2,3]], [])
 print(a_imprimir)
