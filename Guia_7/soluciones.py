@@ -283,7 +283,6 @@ def historial_de_saldo() -> [((str, float), float)]:
     return transacciones
 
 #3
-
 def actualizar_puntuacion(carta: int, puntuacion: int) -> int:
     if carta <= 7:
         puntuacion += carta
@@ -319,5 +318,13 @@ def siete_y_medio() -> [int]:
 
     return mano_jugador, banca
 
-a_imprimir = siete_y_medio()
+##5
+#1
+def pertenece_a_cada_uno(s: [[int]], n: int, res: [bool]) -> [bool]: #s y n son parametros de tipo in y res es de tipo out
+    for i in s:
+        res.append(True) if pertenece1(i, n) else res.append(False)
+    
+    return res
+
+a_imprimir = pertenece_a_cada_uno([[1,2],[1,2],[1,2,3],[1,2]], 3, [])
 print(a_imprimir)
