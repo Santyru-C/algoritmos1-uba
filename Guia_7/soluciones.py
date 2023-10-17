@@ -365,16 +365,16 @@ def multiplicar_matrices(m1: [[int]], m2: [[int]]) -> int:
         matriz_resultante.append(fila_res)
     return matriz_resultante
 
-def potencia_de_matriz_cuadrada_d(d: int, p: int):
+def potencia_de_matriz_cuadrada_d(d: int, p: int) -> [[int]]:
     """genera una matriz dxd con valores aleatoreos y la eleva a la p potencia"""
 
-    m = numpy.random.randint(1, 10, (d, d))
-    mf = m.copy()
+    m: [[int]] = numpy.random.randint(1, 10, (d, d))
+    mf: [[int]] = m.copy()
     print(m)
-    for i in range(0,p):
+    for i in range(1, p):
         mf = multiplicar_matrices(mf, m)
-        print(mf)
 
-    return mf
-a_imprimir = potencia_de_matriz_cuadrada_d(2, 3)
+    return numpy.array(mf) #sino me queda desacomodado el output y me sangran los ojos
+
+a_imprimir = potencia_de_matriz_cuadrada_d(10,3)
 print(a_imprimir)
