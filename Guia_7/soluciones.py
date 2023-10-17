@@ -1,4 +1,5 @@
 import random
+import numpy
 
 ### PARAMETROS
 LISTA_VOCALES: [str] = ["a", "e", "i", "o", "u"]
@@ -348,5 +349,32 @@ def filas_ordenadas(m:[[int]], res:[bool]) -> [bool]:
     
     return res
 
-a_imprimir = filas_ordenadas([[3,2,3],[1,2,3],[3,2,3]], [])
+#4
+def multiplicar_matrices(m1: [[int]], m2: [[int]]) -> int:
+    
+    matriz_resultante: [[int]] = []
+    for k in range(0, len(m1)): #este mantiene el puntero en una fila
+        fila_res = []
+        for i in range(0, len(m1)): #este mantiene el puntero en una columna
+            suma: int = 0
+            for j in range(0, len(m1)): #para recorrer los elementos
+                suma += m1[k][j] * m2[j][i]
+        
+            fila_res.append(suma)
+
+        matriz_resultante.append(fila_res)
+    return matriz_resultante
+
+def potencia_de_matriz_cuadrada_d(d: int, p: int):
+    """genera una matriz dxd con valores aleatoreos y la eleva a la p potencia"""
+
+    m = numpy.random.randint(1, 10, (d, d))
+    mf = m.copy()
+    print(m)
+    for i in range(0,p):
+        mf = multiplicar_matrices(mf, m)
+        print(mf)
+
+    return mf
+a_imprimir = potencia_de_matriz_cuadrada_d(2, 3)
 print(a_imprimir)
