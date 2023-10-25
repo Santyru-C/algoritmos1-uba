@@ -23,6 +23,15 @@ def existe_palabra(palabra:str ,nombre_archivo: str) -> bool:
 def cantidad_de_apariciones(nombre_archivo: str, palabra: str) -> int:
     with open(nombre_archivo, "r", encoding="utf-8") as archivo:
         line_list: [str] = archivo.readlines()
-        print(line_list)
+        count: int = 0
 
-print(cantidad_de_apariciones("test.txt", "juan"))
+        for line in line_list:
+            for word in line.split(" "):
+                print(word)
+                if word.strip() == palabra:
+                    count += 1
+
+
+        return count
+
+print(cantidad_de_apariciones("test.txt", "hand"))
