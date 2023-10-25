@@ -34,4 +34,19 @@ def cantidad_de_apariciones(nombre_archivo: str, palabra: str) -> int:
 
         return count
 
-print(cantidad_de_apariciones("test.txt", "hand"))
+##2
+def clonar_sin_comentarios(nombre_archivo: str):  # argumento de tipo in
+    lineas_sin_comentario: [str] = []
+    with open(f"{nombre_archivo}.txt", "r", encoding="utf-8") as archivo:
+        line_list: [str] = archivo.readlines()
+        
+        for line in line_list:
+            if line.strip()[0] != "#":
+                lineas_sin_comentario.append(line)
+
+    with open(nombre_archivo + "_sin_comentarios.txt", "w", encoding="utf-8") as sin_comentarios:
+        sin_comentarios.writelines(lineas_sin_comentario)
+
+##3
+
+clonar_sin_comentarios("test")
