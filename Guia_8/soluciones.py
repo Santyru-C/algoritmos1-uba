@@ -64,4 +64,18 @@ def agregar_frase(nombre_archivo: str, frase: str) -> None:
     with open(f"{nombre_archivo}.txt", "a", encoding="utf-8") as archivo:
         archivo.write(frase)
 
-agregar_frase("test", "lalallalal")
+##5
+def agregar_frase_ini(nombre_archivo: str, frase: str) -> None:
+    line_list: [str] = []
+    
+    archivo = open(f"{nombre_archivo}.txt", "r", encoding="utf-8")
+    line_list: [str] = archivo.readlines()
+    archivo.close()
+
+    print(line_list)
+
+    archivo2 = open(f"{nombre_archivo}.txt", "w", encoding="utf-8")
+    archivo2.write(frase + "\n")
+    archivo2.writelines(line_list)
+
+agregar_frase_ini("test", "lalallalal")
