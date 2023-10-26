@@ -59,5 +59,9 @@ def invertir(nombre_archivo: str) -> None:
         
         archivo_invertido.close()
 
+##4
+def agregar_frase(nombre_archivo: str, frase: str) -> None:
+    with open(f"{nombre_archivo}.txt", "a", encoding="utf-8") as archivo:
+        archivo.write(frase)
 
-invertir("test")
+agregar_frase("test", "lalallalal")
