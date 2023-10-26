@@ -48,5 +48,16 @@ def clonar_sin_comentarios(nombre_archivo: str):  # argumento de tipo in
         sin_comentarios.writelines(lineas_sin_comentario)
 
 ##3
+def invertir(nombre_archivo: str) -> None:
+    with open(f"{nombre_archivo}.txt", "r", encoding="utf-8") as archivo:
+        archivo_invertido = open("reverso.txt", "w", encoding="utf-8")
+        
+        line_list: [str] = archivo.readlines()
+        archivo_invertido.writelines(reversed(line_list)) # me parecio mas ahorrativo hacerlo de esta manera.
+        #for line in reversed(line_list):
+            #archivo_invertido.write(line)
+        
+        archivo_invertido.close()
 
-clonar_sin_comentarios("test")
+
+invertir("test")
