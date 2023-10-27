@@ -1,3 +1,5 @@
+import random
+
 ### ARCHIVOS
 ##1
 #a
@@ -101,4 +103,16 @@ def promedio_estudiante(lu: str) -> float: #argumento de tipo in es el nr de lib
 
     return round(promedio, 2)
 
-print(promedio_estudiante("002"))
+### PILAS
+from queue import LifoQueue as Pila
+
+##8
+def generar_numeros_al_azar(n: int, desde: int, hasta: int) -> Pila: #todos los parámetros son de tipo in
+    p: Pila = Pila()
+
+    for i in range(0, n):
+        p.put(random.randint(desde, hasta))
+
+    return p
+
+print(generar_numeros_al_azar(5,1,10)
