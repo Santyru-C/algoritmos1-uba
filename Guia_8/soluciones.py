@@ -115,4 +115,18 @@ def generar_numeros_al_azar(n: int, desde: int, hasta: int) -> Pila: #todos los 
 
     return p
 
-print(generar_numeros_al_azar(5,1,10)
+##9
+def cantidad_de_elementos(p: Pila) -> int: #parámetro de entrada de tipo in (no podemos modificarlos)
+    contador: int = 0
+    pila_aux: Pila = Pila()
+
+    while not p.empty():
+        pila_aux.put(p.get())
+        contador += 1
+    
+    while not pila_aux.empty(): #devuelve a p a su estado original
+        p.put(pila_aux.get())
+
+    return contador
+
+print(cantidad_de_elementos(generar_numeros_al_azar(7,1,10)))
