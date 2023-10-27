@@ -136,13 +136,35 @@ def cantidad_de_elementos(p: Pila) -> int: #parámetro de entrada de tipo in (no
     return contador
 
 ##10
+def imprimir_pila(p: Pila) -> None:
+    aux_p: Pila = Pila()
+    while not p.empty():
+        e = p.get()
+        print(e)
+        aux_p.put(e)
+
+    trasladar_elementos(aux_p, p)
+
 def buscar_el_maximo(p: Pila) -> int: #parámetro de entrada p de tipo in.
+    maximo: int = p.get()
+    aux_p: Pila = Pila()
+    aux_p.put(maximo)
 
+    while not p.empty():
+        e: int = p.get()
 
-testp = Pila()
-testp.put(1)
-testp.put(2)
-testp.put(3)
-testp.put(4)
+        if maximo < e:
+            maximo = e
+        
+        aux_p.put(e)
 
-print(cantidad_de_elementos(testp))
+    trasladar_elementos(aux_p, p)
+    
+    return maximo
+        
+testp = generar_numeros_al_azar(10, 1, 10)
+imprimir_pila(testp)
+print("")
+print(buscar_el_maximo(testp))
+print("")
+imprimir_pila(testp)
