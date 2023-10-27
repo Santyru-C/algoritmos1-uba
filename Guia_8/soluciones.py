@@ -78,4 +78,27 @@ def agregar_frase_ini(nombre_archivo: str, frase: str) -> None:
     archivo2.write(frase + "\n")
     archivo2.writelines(line_list)
 
-agregar_frase_ini("test", "lalallalal")
+##6
+def leer_binario(nombre_archivo: str) -> [str]:
+    with open(f"{nombre_archivo}.txt", "rb") as archivo:
+        print(archivo.read())
+
+##7
+def promedio_estudiante(lu: str) -> float: #argumento de tipo in es el nr de libreta universitaria del estudiate del cual queremos saber el promedio
+    formatted_data: [[str]] = []
+    notas_alumno: [int] = []
+
+    with open("notas.csv", "r") as archivo:
+        raw_data: [str] = archivo.readlines()
+        for line in raw_data:
+            formatted_data.append(line.rstrip().split(","))
+
+    for entry in formatted_data:
+        if entry[0] == lu:
+            notas_alumno.append(float(entry[3]))
+        
+    promedio: float = sum(notas_alumno) / len(notas_alumno)
+
+    return promedio
+
+print(promedio_estudiante("001"))
