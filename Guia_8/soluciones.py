@@ -99,6 +99,6 @@ def promedio_estudiante(lu: str) -> float: #argumento de tipo in es el nr de lib
         
     promedio: float = sum(notas_alumno) / len(notas_alumno)
 
-    return promedio
+    return round(promedio, 2)
 
-print(promedio_estudiante("001"))
+print(promedio_estudiante("002"))
