@@ -116,17 +116,33 @@ def generar_numeros_al_azar(n: int, desde: int, hasta: int) -> Pila: #todos los 
     return p
 
 ##9
+def trasladar_elementos(p1: Pila, p2: Pila) -> Pila:
+    while not p1.empty():
+        p2.put(p1.get())
+
+    return p2
+
 def cantidad_de_elementos(p: Pila) -> int: #parámetro de entrada de tipo in (no podemos modificarlos)
     contador: int = 0
     pila_aux: Pila = Pila()
 
     while not p.empty():
-        pila_aux.put(p.get())
+        e = p.get()
+        pila_aux.put(e)
         contador += 1
-    
-    while not pila_aux.empty(): #devuelve a p a su estado original
-        p.put(pila_aux.get())
+
+    trasladar_elementos(pila_aux, p)
 
     return contador
 
-print(cantidad_de_elementos(generar_numeros_al_azar(7,1,10)))
+##10
+def buscar_el_maximo(p: Pila) -> int: #parámetro de entrada p de tipo in.
+
+
+testp = Pila()
+testp.put(1)
+testp.put(2)
+testp.put(3)
+testp.put(4)
+
+print(cantidad_de_elementos(testp))
