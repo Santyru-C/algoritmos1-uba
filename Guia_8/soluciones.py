@@ -161,10 +161,27 @@ def buscar_el_maximo(p: Pila) -> int: #parámetro de entrada p de tipo in.
     trasladar_elementos(aux_p, p)
     
     return maximo
+
+def esta_bien_balanceada(s: str) -> bool:
+    splitted: [str] = [*s] #unpack the string into a list
+    bracket_list: [str] = []
+    aux_list: [str] = []
+    
+    for character in splitted:
+        if character == "(" or character == ")":
+            bracket_list.append(character)
+
+    for i in range(0, len(bracket_list), 1):
+        aux_string = bracket_list[i] + bracket_list[-1 - i]
+
+        if not "(" in aux_string or not ")" in aux_string:
+            return False
         
+    return True
 testp = generar_numeros_al_azar(10, 1, 10)
-imprimir_pila(testp)
-print("")
-print(buscar_el_maximo(testp))
-print("")
-imprimir_pila(testp)
+f1 = "1 + (2 x 3 - (2 / 5))"
+f2 = "10 * ( 1 + ( 2 * (- 1)))"
+f3 = "1 + ) 2 x 3 ( ()"
+f4 = "1 + (2) + (3) + 1"
+
+print(esta_bien_balanceada(f4))
