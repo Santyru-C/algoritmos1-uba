@@ -162,6 +162,7 @@ def buscar_el_maximo(p: Pila) -> int: #parámetro de entrada p de tipo in.
     
     return maximo
 
+##11
 def esta_bien_balanceada(s: str) -> bool:
     splitted: [str] = [*s] #unpack the string into a list
     bracket_list: [str] = []
@@ -178,10 +179,30 @@ def esta_bien_balanceada(s: str) -> bool:
             return False
         
     return True
+
+##12
+def evaluar_en_postfix(e: str) -> float: # puna sencilla con eval ADVERTENCIA: USAR EVAL ES RIESGOSO
+    token_list: [str] = e.split(" ")
+    number_stack: Pila = Pila()
+
+    for token in token_list:
+        if token in ["+", "-", "*", "/"]:
+            operando_der = number_stack.get()
+            operando_izq = number_stack.get()
+            ecuation: str = operando_izq+token+operando_der
+            result = eval(ecuation)
+            number_stack.put(str(result))
+
+        else:
+            number_stack.put(token)
+
+    return number_stack.get()
+    
 testp = generar_numeros_al_azar(10, 1, 10)
 f1 = "1 + (2 x 3 - (2 / 5))"
 f2 = "10 * ( 1 + ( 2 * (- 1)))"
 f3 = "1 + ) 2 x 3 ( ()"
 f4 = "1 + (2) + (3) + 1"
-
-print(esta_bien_balanceada(f4))
+postfix1 = "3 4 + 5 * 2 -"
+postfix2 = "1 2 + 3 + 5 +"
+print(evaluar_en_postfix(postfix1))
