@@ -196,13 +196,29 @@ def evaluar_en_postfix(e: str) -> float: # puna sencilla con eval ADVERTENCIA: U
         else:
             number_stack.put(token)
 
-    return number_stack.get()
+    return float(number_stack.get())
+
+def evaluar_en_postfix(e: str) -> float: #ahora una SIN eval
+    pass #TO DO
+
+### COLAS
+from queue import Queue as Cola
+##13
+def random_queue(values: Pila) -> Cola:
+    q: Cola = Cola()
     
-testp = generar_numeros_al_azar(10, 1, 10)
+    for i in range(0, values.qsize()):
+        q.put(values.get())
+
+    return q
+
+    
+testp = generar_numeros_al_azar(5, 1, 10)
 f1 = "1 + (2 x 3 - (2 / 5))"
 f2 = "10 * ( 1 + ( 2 * (- 1)))"
 f3 = "1 + ) 2 x 3 ( ()"
 f4 = "1 + (2) + (3) + 1"
 postfix1 = "3 4 + 5 * 2 -"
 postfix2 = "1 2 + 3 + 5 +"
-print(evaluar_en_postfix(postfix1))
+imprimir_pila(testp)
+imprimir_pila(random_queue(testp))
