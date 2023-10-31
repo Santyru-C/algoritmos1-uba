@@ -244,18 +244,20 @@ def buscar_el_maximo_cola(c: Cola) -> int:
 
     return maximo
 
-testp = Pila()
-testp.put(1)
-testp.put(2)
-testq = Cola()
-testq.put(1)
-testq.put(7)
-testq.put(3)
-f1 = "1 + (2 x 3 - (2 / 5))"
-f2 = "10 * ( 1 + ( 2 * (- 1)))"
-f3 = "1 + ) 2 x 3 ( ()"
-f4 = "1 + (2) + (3) + 1"
-postfix1 = "3 4 + 5 * 2 -"
-postfix2 = "1 2 + 3 + 5 +"
+##16
+def armar_secuencia_de_bingo() -> Cola[int]:
+    l_numeros = [*range(0,100)]
+    c_numeros = Cola()
 
-print(buscar_el_maximo_cola(testq))
+    #for i in range(0, len(l_numeros)):
+        #n: int = l_numeros[random.randint(0, len(l_numeros - i))]
+
+    while len(l_numeros) > 0:
+        n: int = random.choice(l_numeros)
+        c_numeros.put(n)
+        l_numeros.remove(n)
+    
+    return c_numeros
+
+testq: Cola = armar_secuencia_de_bingo()
+print(cantidad_de_elementos_cola(testq))
