@@ -259,7 +259,7 @@ def armar_secuencia_de_bingo() -> Cola[int]:
     
     return c_numeros
 
-def jugar_carton_de_bingo(carton: [int], bolillero: Cola[int]) -> int:
+def jugar_carton_de_bingo(carton: [int], bolillero: Cola[int]) -> int: #ambos parametros son in, luego modificar funcion
     contador: int = 1
 
     while len(carton) > 0:
@@ -273,8 +273,31 @@ def jugar_carton_de_bingo(carton: [int], bolillero: Cola[int]) -> int:
 
     return contador
 
+##17
+def n_pacientes_urgentes(c: Cola[(int, str, str)]) -> int: #parametro de entrada tipo in
+    c_aux: Cola[(int,str,str)] = Cola()
+    tipo_prioritario: [int] = [*range(1,4)] #recordar que el 4 no entra en el rango
+    contador: int = 0
+    
+    while not c.empty():
+        paciente: (int, str, str) = c.get()
+        
+        if paciente[0] in tipo_prioritario:
+            contador += 1
+        
+        c_aux.put(paciente)
+
+    trasladar_elementos(c_aux, c)
+
+    return contador        
+
 carton: [int] = [1,2,3,4,5,6,7,8,9,10,11,12]
 testq: Cola = armar_secuencia_de_bingo()
-imprimir_pila(testq)
-print()
-print(jugar_carton_de_bingo(carton, testq))
+cola_pacientes = Cola()
+cola_pacientes.put((1,"a","b"))
+cola_pacientes.put((5,"a","b"))
+cola_pacientes.put((1,"a","b"))
+cola_pacientes.put((1,"a","b"))
+cola_pacientes.put((1,"a","b"))
+
+print(n_pacientes_urgentes(cola_pacientes))
