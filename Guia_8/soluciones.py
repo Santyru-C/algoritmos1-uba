@@ -291,13 +291,40 @@ def n_pacientes_urgentes(c: Cola[(int, str, str)]) -> int: #parametro de entrada
 
     return contador        
 
+##18
+def atencion_a_clientes(c: Cola[(str, int, bool, bool)]) -> Cola[(str,int, bool, bool)]:
+    c_aux: Cola[(str,int,bool,bool)] = Cola() # esta cola va a guardar los valores de la cola original
+    c_disc: Cola[(str,int,bool,bool)] = Cola()
+    c_pref: Cola[(str,int,bool,bool)] = Cola()
+    c_comun: Cola[(str,int,bool,bool)] = Cola()
+    c_final: Cola[(str,int,bool,bool)] = Cola()
+
+    while not c.empty():
+        cliente: (str, int, bool, bool) = c.get()
+        c_aux.put(cliente)
+
+        if cliente[3]:
+            c_disc.put(cliente)
+        elif cliente[2]:
+            c_pref.put(cliente)
+        else:
+            c_comun.put(cliente)
+
+
+    trasladar_elementos(c_aux, c) # todo esto se podria poner en una lista e iterarla en lugar de repetir
+    trasladar_elementos(c_disc, c_final) # estas sentencias 4 veces
+    trasladar_elementos(c_pref, c_final)
+    trasladar_elementos(c_comun, c_final)
+
+    return c_final
+
 carton: [int] = [1,2,3,4,5,6,7,8,9,10,11,12]
 testq: Cola = armar_secuencia_de_bingo()
-cola_pacientes = Cola()
-cola_pacientes.put((1,"a","b"))
-cola_pacientes.put((5,"a","b"))
-cola_pacientes.put((1,"a","b"))
-cola_pacientes.put((1,"a","b"))
-cola_pacientes.put((1,"a","b"))
+cola_clientes = Cola()
+cola_clientes.put(("a",1, True, True))
+cola_clientes.put(("b",1, True, False))
+cola_clientes.put(("c",1, True, True))
+cola_clientes.put(("d",1, False, False))
+cola_clientes.put(("e",1, False, True))
 
-print(n_pacientes_urgentes(cola_pacientes))
+imprimir_pila(atencion_a_clientes(cola_clientes))
