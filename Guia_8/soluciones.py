@@ -212,13 +212,34 @@ def random_queue(values: Pila) -> Cola:
 
     return q
 
+##14
+def cantidad_de_elementos_cola(c: Cola) -> int: #tipo de elemento in
+    contador: int = 0
+    cola_aux: Cola = Cola()
+
+    while not c.empty():
+        e = c.get()
+        contador += 1
+        cola_aux.put(e)
     
-testp = generar_numeros_al_azar(5, 1, 10)
+    while not cola_aux.empty(): #devolvemos los elementos a la cola original
+        e2 = cola_aux.get()
+        c.put(e)
+
+    return contador
+    
+testp = Pila()
+testp.put(1)
+testp.put(2)
+testq = Cola()
+testq.put(1)
+testq.put(2)
+testq.put(3)
 f1 = "1 + (2 x 3 - (2 / 5))"
 f2 = "10 * ( 1 + ( 2 * (- 1)))"
 f3 = "1 + ) 2 x 3 ( ()"
 f4 = "1 + (2) + (3) + 1"
 postfix1 = "3 4 + 5 * 2 -"
 postfix2 = "1 2 + 3 + 5 +"
-imprimir_pila(testp)
-imprimir_pila(random_queue(testp))
+
+print(cantidad_de_elementos_cola(testq))
