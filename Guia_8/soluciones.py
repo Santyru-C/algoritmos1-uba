@@ -259,5 +259,22 @@ def armar_secuencia_de_bingo() -> Cola[int]:
     
     return c_numeros
 
+def jugar_carton_de_bingo(carton: [int], bolillero: Cola[int]) -> int:
+    contador: int = 1
+
+    while len(carton) > 0:
+        bolilla: int = bolillero.get()
+
+        if bolilla in carton:
+            print(bolilla, contador)
+            carton.remove(bolilla)
+        
+        contador += 1
+
+    return contador
+
+carton: [int] = [1,2,3,4,5,6,7,8,9,10,11,12]
 testq: Cola = armar_secuencia_de_bingo()
-print(cantidad_de_elementos_cola(testq))
+imprimir_pila(testq)
+print()
+print(jugar_carton_de_bingo(carton, testq))
