@@ -227,13 +227,29 @@ def cantidad_de_elementos_cola(c: Cola) -> int: #tipo de elemento in
         c.put(e)
 
     return contador
-    
+
+##15
+def buscar_el_maximo_cola(c: Cola) -> int:
+    maximo: int = c.get()
+    c_aux: Cola = Cola()
+    c_aux.put(maximo)
+
+    while not c.empty():
+        e: int = c.get()
+        c_aux.put(e)
+        if e > maximo:
+            maximo = e
+
+    trasladar_elementos(c_aux, c) # voy a aprovechar que python no me fuerza a utilizar los tipos declarados para la funcion
+
+    return maximo
+
 testp = Pila()
 testp.put(1)
 testp.put(2)
 testq = Cola()
 testq.put(1)
-testq.put(2)
+testq.put(7)
 testq.put(3)
 f1 = "1 + (2 x 3 - (2 / 5))"
 f2 = "10 * ( 1 + ( 2 * (- 1)))"
@@ -242,4 +258,4 @@ f4 = "1 + (2) + (3) + 1"
 postfix1 = "3 4 + 5 * 2 -"
 postfix2 = "1 2 + 3 + 5 +"
 
-print(cantidad_de_elementos_cola(testq))
+print(buscar_el_maximo_cola(testq))
