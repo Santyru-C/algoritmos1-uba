@@ -446,8 +446,10 @@ def actualizar_precio(inventario: dict, nombre: str, precio: float) -> None:
     if nombre in inventario.keys():
         inventario[nombre]["precio"] = precio
 
-agregar_producto(inventario, "remera", 20, 1)
-actualizar_stock(inventario, "remera", 2)
-actualizar_precio(inventario, "remera", 1)
-print(inventario)
+def calcular_valor_inventario(inventario) -> float:
+    valor_total: float = 0
+    for item in inventario.values():
+        valor_total += item["precio"] * item["cantidad"]
+
+    return valor_total
 
