@@ -409,8 +409,9 @@ def la_palabra_mas_frecuente(nombre_archivo: str) -> str:
 
     return palabra_mas_repetida[0]
 
-##22
+##22 todo esto estaría mejor implementado en una clase pero bueno...
 historiales = {}
+sitios_siguientes = Pila()
 
 def visitar_sitio(historiales, usuario, sitio):
     if not usuario in historiales.keys():
@@ -418,3 +419,11 @@ def visitar_sitio(historiales, usuario, sitio):
     
     historiales[usuario].put(sitio)
 
+def navegar_atras(historiales, usuario):
+    ultimo_sitio = historiales[usuario].get()
+    sitios_siguientes.put(ultimo_sitio)
+
+visitar_sitio(historiales, "juan", "google")
+visitar_sitio(historiales, "juan", "facebook")
+navegar_atras(historiales, "juan")
+print(historiales["juan"].get())
