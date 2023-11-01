@@ -420,10 +420,20 @@ def visitar_sitio(historiales, usuario, sitio):
     historiales[usuario].put(sitio)
 
 def navegar_atras(historiales, usuario):
-    ultimo_sitio = historiales[usuario].get()
-    sitios_siguientes.put(ultimo_sitio)
+    if not historiales[usuario].empty():
+        ultimo_sitio = historiales[usuario].get()
+        sitios_siguientes.put(ultimo_sitio)
+    else:
+        print("no se encuentran sitios anteriores")
+
+def navegar_adelante(historiales, usuario):
+    if not sitios_siguientes.empty():
+        historiales[usuario].put(sitios_siguientes.get())
+    else:
+        print("no hay sitios más recientes")
 
 visitar_sitio(historiales, "juan", "google")
 visitar_sitio(historiales, "juan", "facebook")
 navegar_atras(historiales, "juan")
-print(historiales["juan"].get())
+navegar_atras(historiales, "juan")
+navegar_atras(historiales, "juan")
