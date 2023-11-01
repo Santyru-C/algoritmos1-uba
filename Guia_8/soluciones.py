@@ -349,10 +349,11 @@ def agrupar_por_longitud(nombre_archivo: str) -> dict:
     d: dict = {}
 
     for p in palabras:
-        if not p in d.keys():
-            d[p] = 1
+        largo: int = len(p)
+        if not largo in d.keys():
+            d[largo] = 1
         else:
-            d[p] += 1
+            d[largo] += 1
 
     return d
 
@@ -390,5 +391,8 @@ def promedio_estudiantes2() -> dict: #esta va a utilizar la funcion promedio_est
 
     return d_promedios
 
-print(promedio_estudiantes2())
+##21
+def la_palabra_mas_frecuente(nombre_archivo: str) -> str:
+    d_palabras: dict = {} 
 
+print(agrupar_por_longitud("test"))
