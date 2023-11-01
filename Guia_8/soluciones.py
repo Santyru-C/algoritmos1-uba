@@ -86,14 +86,19 @@ def leer_binario(nombre_archivo: str) -> [str]:
         print(archivo.read())
 
 ##7
-def promedio_estudiante(lu: str) -> float: #argumento de tipo in es el nr de libreta universitaria del estudiate del cual queremos saber el promedio
+def extraer_info_notas():
     formatted_data: [[str]] = []
-    notas_alumno: [int] = []
 
     with open("notas.csv", "r") as archivo:
         raw_data: [str] = archivo.readlines()
         for line in raw_data:
             formatted_data.append(line.rstrip().split(","))
+
+    return formatted_data
+
+def promedio_estudiante(lu: str) -> float: #argumento de tipo in es el nr de libreta universitaria del estudiate del cual queremos saber el promedio
+    formatted_data: [[str]] = extraer_info_notas()
+    notas_alumno: [int] = []
 
     for entry in formatted_data:
         if entry[0] == lu:
@@ -350,6 +355,9 @@ def agrupar_por_longitud(nombre_archivo: str) -> dict:
             d[p] += 1
 
     return d
+
+##20
+def promedio_estudiante_dict()
 
 print(agrupar_por_longitud("test"))
 
