@@ -393,6 +393,20 @@ def promedio_estudiantes2() -> dict: #esta va a utilizar la funcion promedio_est
 
 ##21
 def la_palabra_mas_frecuente(nombre_archivo: str) -> str:
-    d_palabras: dict = {} 
+    palabras: [str] = extraer_palabras_de_archivo(nombre_archivo)
+    d_repeticiones: dict = {}
+    palabra_mas_repetida: (str, int) = ("", 0)
 
-print(agrupar_por_longitud("test"))
+    for p in palabras:
+        if not p in d_repeticiones.keys():
+            d_repeticiones[p] = 1
+        else:
+            d_repeticiones[p] += 1
+
+    for palabra, repeticiones in d_repeticiones.items():
+        if repeticiones > palabra_mas_repetida[1]:
+            palabra_mas_repetida = (palabra, repeticiones)
+
+    return palabra_mas_repetida[0]
+
+print(la_palabra_mas_frecuente("test"))
