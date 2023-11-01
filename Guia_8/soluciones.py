@@ -435,8 +435,19 @@ def navegar_adelante(historiales, usuario):
 ##23
 inventario: dict = {}
 
-def agregar_producto(inventario, nombre, precio, cantidad):
+def agregar_producto(inventario: dict, nombre: str, precio: float, cantidad: int) -> None:
     inventario[nombre] = {"precio": precio, "cantidad": cantidad}
 
+def actualizar_stock(inventario: dict, nombre: str, cantidad: int) -> None:
+    if nombre in inventario.keys():
+        inventario[nombre]["cantidad"] = cantidad
 
+def actualizar_precio(inventario: dict, nombre: str, precio: float) -> None:
+    if nombre in inventario.keys():
+        inventario[nombre]["precio"] = precio
+
+agregar_producto(inventario, "remera", 20, 1)
+actualizar_stock(inventario, "remera", 2)
+actualizar_precio(inventario, "remera", 1)
+print(inventario)
 
