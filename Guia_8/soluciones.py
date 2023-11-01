@@ -432,8 +432,11 @@ def navegar_adelante(historiales, usuario):
     else:
         print("no hay sitios más recientes")
 
-visitar_sitio(historiales, "juan", "google")
-visitar_sitio(historiales, "juan", "facebook")
-navegar_atras(historiales, "juan")
-navegar_atras(historiales, "juan")
-navegar_atras(historiales, "juan")
+##23
+inventario: dict = {}
+
+def agregar_producto(inventario, nombre, precio, cantidad):
+    inventario[nombre] = {"precio": precio, "cantidad": cantidad}
+
+
+
