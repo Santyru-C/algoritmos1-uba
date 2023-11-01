@@ -340,9 +340,16 @@ def extraer_palabras_de_archivo(nombre_archivo: str) -> [str]:
     return palabras
 
 def agrupar_por_longitud(nombre_archivo: str) -> dict:
+    palabras: [str] = extraer_palabras_de_archivo(nombre_archivo)
+    d: dict = {}
 
+    for p in palabras:
+        if not p in d.keys():
+            d[p] = 1
+        else:
+            d[p] += 1
 
-    print(extraer_palabras_de_archivo(nombre_archivo))
+    return d
 
-agrupar_por_longitud("test")
+print(agrupar_por_longitud("test"))
 
