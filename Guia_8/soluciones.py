@@ -409,4 +409,12 @@ def la_palabra_mas_frecuente(nombre_archivo: str) -> str:
 
     return palabra_mas_repetida[0]
 
-print(la_palabra_mas_frecuente("test"))
+##22
+historiales = {}
+
+def visitar_sitio(historiales, usuario, sitio):
+    if not usuario in historiales.keys():
+        historiales[usuario] = Pila()
+    
+    historiales[usuario].put(sitio)
+
