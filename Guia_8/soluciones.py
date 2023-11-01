@@ -357,7 +357,24 @@ def agrupar_por_longitud(nombre_archivo: str) -> dict:
     return d
 
 ##20
-def promedio_estudiante_dict()
+def promedio_estudiantes() -> dict:
+    formatted_data: [str] = extraer_info_notas()
+    d_notas: dict = {}
+    d_promedios: dict = {} #utilizo otro dict para conservar la info de las notas
 
-print(agrupar_por_longitud("test"))
+    for entry in formatted_data:
+        lu: str = entry[0]
+        nota: float = float(entry[3])
+
+        if not lu in d_notas:
+            d_notas[lu] = []
+
+        d_notas[lu].append(nota)
+
+    for est, notas in d_notas.items():
+        d_promedios[est] = round(sum(notas) / len(notas), 2)
+    
+    return d_promedios
+
+print(promedio_estudiantes())
 
