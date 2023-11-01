@@ -327,4 +327,22 @@ cola_clientes.put(("c",1, True, True))
 cola_clientes.put(("d",1, False, False))
 cola_clientes.put(("e",1, False, True))
 
-imprimir_pila(atencion_a_clientes(cola_clientes))
+### DICCIONARIOS
+##19
+def extraer_palabras_de_archivo(nombre_archivo: str) -> [str]:
+    with open(f"{nombre_archivo}.txt", "r") as archivo:
+        file_lines: [str] = archivo.readlines()
+
+    palabras: [str] = []
+    for line in file_lines:
+        palabras.extend(line.strip().split(" "))
+
+    return palabras
+
+def agrupar_por_longitud(nombre_archivo: str) -> dict:
+
+
+    print(extraer_palabras_de_archivo(nombre_archivo))
+
+agrupar_por_longitud("test")
+
