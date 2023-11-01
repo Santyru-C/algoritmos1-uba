@@ -376,5 +376,19 @@ def promedio_estudiantes() -> dict:
     
     return d_promedios
 
-print(promedio_estudiantes())
+def promedio_estudiantes2() -> dict: #esta va a utilizar la funcion promedio_estudiante
+    data: [str] = extraer_info_notas()
+    estudiantes: [str] = []
+    d_promedios: dict = {}
+
+    for entry in data:
+        if not entry[0] in estudiantes:
+            estudiantes.append(entry[0])
+
+    for est in estudiantes:
+        d_promedios[est] = promedio_estudiante(est)
+
+    return d_promedios
+
+print(promedio_estudiantes2())
 
